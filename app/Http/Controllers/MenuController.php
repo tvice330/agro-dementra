@@ -7,11 +7,13 @@ use App\Menu;
 use App\Models\User;
 class MenuController extends Controller
 {
-
-    public function menu()
+    /**
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function index()
     {
-        $menu = Menu::all();
-        dd($menu);
+//        dd('f');
+        return Menu::get();
     }
 }
 

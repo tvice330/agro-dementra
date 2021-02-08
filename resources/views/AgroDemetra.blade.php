@@ -33,10 +33,13 @@
                         <nav id="men">
 
                             <ul class="menu scroll">
-                                <li><a href="#block1">{{route('menu-data')}}</a></li>
-                                <li><a href="#block2">НАША ПРОДУКЦИЯ</a></li>
-                                <li><a href="#block3">О КОМПАНИИ</a></li>
-                                <li><a href="#block4">КОНТАКТЫ</a></li>
+                                @foreach($menus as $key => $menu)
+                                    <li><a href="#block{{$key + 1}}">{{ $menu->name }}</a></li>
+                                @endforeach
+{{--                                <li><a href="#block1"></a></li>--}}
+{{--                                <li><a href="#block2">НАША ПРОДУКЦИЯ</a></li>--}}
+{{--                                <li><a href="#block3">О КОМПАНИИ</a></li>--}}
+{{--                                <li><a href="#block4">КОНТАКТЫ</a></li>--}}
                             </ul>
                         </nav>
                     </div>
