@@ -12,6 +12,7 @@ class MenuController extends Controller
      */
     public function index()
     {
+        // test
         return Menu::get();
     }
 }
