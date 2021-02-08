@@ -1,0 +1,28 @@
+.menu {
+  list-style: none;
+}
+
+.menu li {
+  margin: 0 3%;
+  float: left;
+
+}
+.menu li a {
+  text-decoration: none;
+  color: #46321f;
+  font-size: 12px;
+  font-family: 'Gilroy';
+  line-height: 1.55;
+  font-weight: 300;
+  border-width: 1px;
+  border-radius: 30px;
+  background-position: center center;
+  border-color: transparent;
+  border-style: solid;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+.menu li:hover a {
+  color: #3ba607;
+  text-decoration: none;
+}
+

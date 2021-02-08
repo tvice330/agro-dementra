@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/AgroDemetra', function () {
+    return view('AgroDemetra');
 });
+Route::get('/menu/all', 'MenuController@menu')->name('menu-data');
