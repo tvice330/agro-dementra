@@ -7,22 +7,6 @@ class MenuTableSeeder extends Seeder
 {
     public function run()
     {
-//        App\Menu::create([
-//            'name' => 'sentence',
-//        ]);
-//
-//        App\Menu::create([
-//            'name' => 'sentence',
-//        ]);
-//
-//        App\Menu::create([
-//            'name' => 'sentence',
-//        ]);
-//
-//        App\Menu::create([
-//            'name' => 'sentence',
-//        ]);
-
         $data = [
             [
                 'name' => 'ПРЕИМУЩЕСТВА'

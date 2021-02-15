@@ -13,4 +13,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/menu', 'MenuController@index');
+Route::get('/menus', 'MenuController@index');
+Route::get('/settings', 'SettingController@index');
