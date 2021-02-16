@@ -15,3 +15,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/menus', 'MenuController@index');
 Route::get('/settings', 'SettingController@index');
+Route::get('/advantages', 'AdvantageController@index');

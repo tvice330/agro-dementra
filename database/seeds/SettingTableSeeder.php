@@ -1,4 +1,5 @@
 <?php
+
 use App\Setting;
 use Illuminate\Database\Seeder;
 
@@ -9,41 +10,30 @@ class SettingTableSeeder extends Seeder
 
         $data = [
             [
-                'key' => 'logo'
-            ],
-            [
-                'key' => 'phone_one'
-            ],
-            [
-                'key' => 'phone_two'
-            ],
-            [
-                'key' => 'phone_three'
-            ],
-            [
-                'key' => 'email'
-            ],
-            [
-                'key' => 'adres'
-            ],
-            [
+                'key' => 'logo',
                 'value' => 'ООО НЦ "Деметра"'
+
             ],
             [
+                'key' => 'phone_one',
                 'value' => '(067)776-80-80'
             ],
             [
+                'key' => 'phone_two',
                 'value' => '(066)686-31-98'
             ],
             [
+                'key' => 'phone_three',
                 'value' => '(093)403-47-88'
             ],
             [
+                'key' => 'email',
                 'value' => 'smirnovpasa120@gmail.com'
             ],
             [
+                'key' => 'adres',
                 'value' => 'Украина, Киевская область, Киево-Святошинский район'
-            ],
+            ]
 
         ];
 

@@ -112,19 +112,24 @@
         </div>
     </div>
     <div class="container container-two">
+        @foreach($advantages as $key => $advantage)
+            {{$key + 1}}->{{ $advantages->name }}
         <div class="row">
             <div class="col-md-1"></div>
             <div class="col-md-3">
                 <img src="image/im12_ic1.png" class="image-block">
-                <span>ТОЛЬКО ВЫСОКОКАЧЕСТВЕННЫЕ СОРТА</span>
+                <span>  @foreach($advantages as $key => $advantage)
+                        {{$key + 1}}->{{ $advantages->name }}
+                    @endforeach
+                </span>
             </div>
             <div class="col-md-4">
                 <img src="image/im12_ic1.png" class="image-block">
-                <span>ШИРОКИЙ АССОРТИМЕНТ</span>
+                <span></span>
             </div>
             <div class="col-md-3">
                 <img src="image/im12_ic1.png" class="image-block">
-                <span>ВЫСОКАЯ УРОЖАЙНОСТЬ</span>
+                <span></span>
             </div>
             <div class="col-md-1"></div>
         </div>
@@ -132,18 +137,20 @@
             <div class="col-md-1"></div>
             <div class="col-md-3">
                 <img src="image/im12_ic1.png" class="image-block">
-                <span>ОПЛАТА ПОСЛЕ ДОСТАВКИ ТОВАРА</span>
+                <span></span>
             </div>
             <div class="col-md-4">
                 <img src="image/im12_ic1.png" class="image-block">
-                <span>КОНТРОЛИРУЕМ СРОКИ ГОДНОСТИ И СООТВЕТСТВИЕ СОРТОВ</span>
+                <span></span>
             </div>
             <div class="col-md-3">
                 <img src="image/im12_ic1.png" class="image-block">
-                <span>ДОСТАВКА НОВОЙ ПОЧТОЙ ИЛИ СВОИМ ТРАНСПОРТОМ</span>
+                <span></span>
             </div>
             <div class="col-md-1"></div>
+
         </div>
+
     </div>
     <div class="container container-three">
         <div class="row">

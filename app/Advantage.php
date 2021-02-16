@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Setting extends Model
+class Advantage extends Model
 {
     protected $fillable = [
-        'key', 'value'
+        'name'
     ];
 }
