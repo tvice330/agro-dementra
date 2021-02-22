@@ -7,5 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Callback extends Model
 {
     protected $fillable = [
-        'name', 'position', 'active',
+        'name', 'phone',
     ];
+}

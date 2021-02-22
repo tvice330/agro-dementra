@@ -21,7 +21,7 @@ class MenuTableSeeder extends Seeder
             [
                 'name' => 'О КОМПАНИИ',
                 'position' => '3',
-                'alias' => 'about us'
+                'alias' => 'about_us'
             ],
             [
                 'name' => 'КОНТАКТЫ',
