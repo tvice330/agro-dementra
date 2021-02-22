@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Advantage;
+
 class AdvantageController extends Controller
 {
     /**
@@ -9,7 +11,7 @@ class AdvantageController extends Controller
      */
     public function index()
     {
-        return Advantage::get();
+        return Advantage::active()->byPosition()->get();
     }
 }
 

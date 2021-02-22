@@ -2,16 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Setting;
+use App\Advantage;
+use App\Category;
 
-class SettingController extends Controller
+class AdvantageController extends Controller
 {
     /**
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function index()
     {
-        return Setting::get();
+        return Category::active()->byPosition()->get();
     }
 }
 

@@ -31,7 +31,7 @@ class SettingTableSeeder extends Seeder
                 'value' => 'smirnovpasa120@gmail.com'
             ],
             [
-                'key' => 'adres',
+                'key' => 'address',
                 'value' => 'Украина, Киевская область, Киево-Святошинский район'
             ]
 

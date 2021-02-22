@@ -4,10 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Menu extends Model
+class category extends Model
 {
     protected $fillable = [
-        'name', 'position','active', 'alias'
+        'name', 'position','active',
     ];
 
     public function scopeByPosition($query)

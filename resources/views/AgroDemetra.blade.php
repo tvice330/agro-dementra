@@ -118,9 +118,7 @@
             <div class="col-md-1"></div>
             <div class="col-md-3">
                 <img src="image/im12_ic1.png" class="image-block">
-                <span>  @foreach($advantages as $key => $advantage)
-                        {{$key + 1}}->{{ $advantages->name }}
-                    @endforeach
+                <span>
                 </span>
             </div>
             <div class="col-md-4">

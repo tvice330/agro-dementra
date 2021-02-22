@@ -1,9 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Http\Controllers\Controller;
+
 use App\Menu;
-use App\Models\User;
+
 class MenuController extends Controller
 {
     /**
@@ -11,7 +11,7 @@ class MenuController extends Controller
      */
     public function index()
     {
-        return Menu::get();
+        return Menu::active()->byPosition()->get();
     }
 }
 
