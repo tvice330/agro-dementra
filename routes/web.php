@@ -16,3 +16,4 @@ Route::get('/menus', 'MenuController@index');
 Route::get('/settings', 'SettingController@index');
 Route::get('/advantages', 'AdvantageController@index');
 Route::get('/categories', 'CatagoryController@index');
+Route::get('/Cooperations', 'MenuController@index');

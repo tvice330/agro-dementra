@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Advantage;
+use App\Cooperation;
 
-class CategoryController extends Controller
+class CooperationController extends Controller
 {
     /**
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function index()
     {
-        return Category::active()->byPosition()->get();
+        return Cooperation::active()->byPosition()->get();
     }
 }
 
