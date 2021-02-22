@@ -1,17 +1,17 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin\Setting;
 
-use App\Advantage;
+use App\Http\Controllers\Controller;
+use App\Models\Setting;
 
-class CategoryController extends Controller
+class SettingController extends Controller
 {
     /**
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function index()
     {
-        return Category::active()->byPosition()->get();
+        return Setting::get();
     }
 }
-

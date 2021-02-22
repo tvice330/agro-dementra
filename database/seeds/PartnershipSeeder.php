@@ -1,8 +1,9 @@
 <?php
-use App\Cooperation;
+
+use App\Models\Partnership;
 use Illuminate\Database\Seeder;
 
-class CooperationSeeder extends Seeder
+class PartnershipSeeder extends Seeder
 {
     public function run()
     {
@@ -50,8 +51,9 @@ class CooperationSeeder extends Seeder
         ];
 
         foreach ($data as $item) {
-            Cooperation::create($item);
+           Partnership::create($item);
         }
     }
 }
+
 

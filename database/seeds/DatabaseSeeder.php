@@ -15,6 +15,6 @@ class DatabaseSeeder extends Seeder
         $this->call(SettingTableSeeder::class);
         $this->call(AdvantageSeeder::class);
         $this->call(CategorySeeder::class);
-        $this->call(CooperationSeeder::class);
+        $this->call(PartnershipSeeder::class);
     }
 }

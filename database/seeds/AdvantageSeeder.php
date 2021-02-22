@@ -1,6 +1,6 @@
 <?php
 
-use App\Advantage;
+use App\Models\Advantage;
 use Illuminate\Database\Seeder;
 
 class AdvantageSeeder extends Seeder

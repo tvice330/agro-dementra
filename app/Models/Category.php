@@ -1,13 +1,13 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Cooperation extends Model
+class Category extends Model
 {
     protected $fillable = [
-        'name', 'second-name', 'position', 'active',
+        'name', 'position', 'active',
     ];
 
     public function scopeActive($query)
@@ -20,3 +20,4 @@ class Cooperation extends Model
         return $query->orderBy('position');
     }
 }
+

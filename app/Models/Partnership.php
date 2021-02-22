@@ -1,13 +1,13 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Category extends Model
+class Partnership extends Model
 {
     protected $fillable = [
-        'name', 'position', 'active',
+        'name', 'second-name', 'position', 'active',
     ];
 
     public function scopeActive($query)
