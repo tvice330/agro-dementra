@@ -16,7 +16,7 @@ class PartnershipsTable extends Migration
         Schema::create('partnerships', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('second-name');
+            $table->string('second_name');
             $table->boolean('active')->default(true);
             $table->integer('position')->default(0);
             $table->timestamps();

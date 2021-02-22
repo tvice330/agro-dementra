@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Partnership extends Model
 {
     protected $fillable = [
-        'name', 'second-name', 'position', 'active',
+        'name', 'second_name', 'position', 'active',
     ];
 
     public function scopeActive($query)
