@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CallbackTable extends Migration
+class UserCallTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CallbackTable extends Migration
      */
     public function up()
     {
-        Schema::create('partnerships', function (Blueprint $table) {
+        Schema::create('user_calls', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->string('phone');
