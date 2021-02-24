@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Advantage;
+namespace App\Http\Controllers\Clients\Advantage;
 
 use App\Http\Controllers\Controller;
 use App\Models\Advantage;
@@ -12,7 +12,7 @@ class AdvantageController extends Controller
      */
     public function index()
     {
-        return Advantage::get();
+        return Advantage::active()->byPosition()->get();
     }
 }
 

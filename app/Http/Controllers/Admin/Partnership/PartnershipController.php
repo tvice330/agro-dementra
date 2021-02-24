@@ -12,7 +12,7 @@ class PartnershipController extends Controller
      */
     public function index()
     {
-        return Partnership::active()->byPosition()->get();
+        return Partnership::get();
     }
 }
 

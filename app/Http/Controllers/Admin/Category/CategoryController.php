@@ -12,6 +12,6 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return Category::active()->byPosition()->get();
+        return Category::get();
     }
 }

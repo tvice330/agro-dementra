@@ -12,6 +12,6 @@ class MenuController extends Controller
      */
     public function index()
     {
-        return Menu::active()->byPosition()->get();
+        return Menu::get();
     }
 }

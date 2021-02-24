@@ -4,10 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class User_call extends Model
+class UserCall extends Model
 {
     protected $fillable = [
         'name', 'phone',
     ];
 }
-
