@@ -16,5 +16,7 @@ class DatabaseSeeder extends Seeder
         $this->call(AdvantageSeeder::class);
         $this->call(CategorySeeder::class);
         $this->call(PartnershipSeeder::class);
+        $this->call(ActionSeeder::class);
+        $this->call(ActionValuesSeeder::class);
     }
 }
