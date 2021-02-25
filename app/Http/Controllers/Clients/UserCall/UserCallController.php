@@ -10,8 +10,9 @@ class UserCallController extends Controller
 {
     public function store(Request $request)
     {
-        $data = $request->all();
-        UserCall::create($data);
+        $user = $request->all();
+        UserCall::create($user);
+        return $user;
     }
 }
 

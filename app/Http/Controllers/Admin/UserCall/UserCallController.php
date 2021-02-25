@@ -8,10 +8,6 @@ use Illuminate\Http\Request;
 
 class UserCallController extends Controller
 {
-    public function store(Request $request)
-    {
-        $data = $request->all();
-        UserCall::create($data);
-    }
+    //
 }
 
