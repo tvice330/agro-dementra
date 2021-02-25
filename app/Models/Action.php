@@ -14,6 +14,7 @@ class Action extends Model
     {
         return $this->hasMany(ActionValue::class);
     }
+
     public function scopeActive($query)
     {
         return $query->where('active', 1);
