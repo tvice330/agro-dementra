@@ -17,7 +17,7 @@ class AskQuestionsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('phone');
-            $table->string('massage');
+            $table->string('message');
             $table->timestamps();
         });
     }

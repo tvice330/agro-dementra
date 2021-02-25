@@ -14,4 +14,9 @@ class ActionValue extends Model
     {
         return $this->belongsTo(Action::class);
     }
+
+    public function scopeActive($query)
+    {
+        return $query->where('active', 1);
+    }
 }

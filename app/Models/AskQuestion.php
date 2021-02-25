@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class AskQuestion extends Model
 {
     protected $fillable = [
-        'name', 'phone', 'massage',
+        'name', 'phone', 'message',
     ];
 }
