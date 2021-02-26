@@ -10,7 +10,7 @@ class AskQuestioncontroller extends Controller
 {
     public function store(AskRequest $request)
     {
-        $data = $request->all();
+        $data = $request->validated();
         $ask = AskQuestion::create($data);
         return $ask;
     }
