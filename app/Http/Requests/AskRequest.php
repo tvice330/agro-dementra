@@ -21,7 +21,7 @@ class AskRequest extends FormRequest
         return [
             'name' => 'required|string',
             'phone' => 'required|string',
-            'message' => 'required',
+            'message' => 'required|text',
         ];
     }
 }
