@@ -8,10 +8,11 @@ use App\Models\Setting;
 class SettingController extends Controller
 {
     /**
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return \Illuminate\Http\JsonResponse
      */
     public function index()
     {
-        return Setting::get();
+        $data = Setting::get();
+        return response()->json(['data' => $data]);
     }
 }

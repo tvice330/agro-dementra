@@ -8,11 +8,12 @@ use App\Models\Advantage;
 class AdvantageController extends Controller
 {
     /**
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return \Illuminate\Http\JsonResponse
      */
     public function index()
     {
-        return Advantage::active()->byPosition()->get();
+        $data = Advantage::active()->byPosition()->get();
+        return response()->json(['data' => $data]);
     }
 }
 

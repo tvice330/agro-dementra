@@ -8,11 +8,12 @@ use App\Models\Category;
 class CategoryController extends Controller
 {
     /**
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return \Illuminate\Http\JsonResponse
      */
     public function index()
     {
-        return Category::active()->byPosition()->get();
+        $data = Category::active()->byPosition()->get();
+        return response()->json(['data' => $data]);
     }
 }
 

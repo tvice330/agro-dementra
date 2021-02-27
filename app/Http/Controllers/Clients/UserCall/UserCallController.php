@@ -12,8 +12,7 @@ class UserCallController extends Controller
     {
         $data = $request->validated();
         $user = UserCall::create($data);
-        return $user;
+        return response()->json(['user ' => $user]);
     }
 }
-
 

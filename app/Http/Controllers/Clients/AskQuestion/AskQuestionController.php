@@ -12,7 +12,7 @@ class AskQuestioncontroller extends Controller
     {
         $data = $request->validated();
         $ask = AskQuestion::create($data);
-        return $ask;
+        return response()->json(['ask' => $ask]);
     }
 }
 

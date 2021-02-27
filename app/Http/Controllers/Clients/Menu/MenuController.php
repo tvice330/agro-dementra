@@ -8,10 +8,11 @@ use App\Models\Menu;
 class MenuController extends Controller
 {
     /**
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return \Illuminate\Http\JsonResponse
      */
     public function index()
     {
-        return Menu::active()->byPosition()->get();
+        $data = Menu::active()->byPosition()->get();
+        return response()->json(['data' => $data]);
     }
 }

@@ -4,14 +4,60 @@ namespace App\Http\Controllers\Admin\Setting;
 
 use App\Http\Controllers\Controller;
 use App\Models\Setting;
+use App\Http\Requests\SettingRequest;
 
 class SettingController extends Controller
 {
     /**
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return \Illuminate\Http\JsonResponse
      */
     public function index()
     {
-        return Setting::get();
+        $setting = Setting::get();
+        return response()->json(['setting' => $setting]);
+    }
+
+    public function show($id)
+    {
+        $setting = Setting::find($id);
+        return response()->json(['setting' => $setting]);
+    }
+
+    public function create()
+    {
+        //
+    }
+
+    public function store(SettingRequest $request)
+    {
+        $data = $request->validated();
+        $setting = Setting::create($data);
+        return response()->json(['setting' => $setting]);
+    }
+
+    public function edit()
+    {
+        //
+    }
+
+    public function update(SettingRequest $request, $id)
+    {
+        $setting = Setting::find($id);
+        $data = $request->all();
+        $setting->update($data);
+        return response()->json(['setting' => $setting]);
+    }
+
+    public function destroy($id)
+    {
+        $setting = Setting::find($id);
+        $setting->delete();
+        return "ok";
     }
 }
+
+
+
+
+
+
