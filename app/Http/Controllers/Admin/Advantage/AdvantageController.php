@@ -13,45 +13,68 @@ class AdvantageController extends Controller
      */
     public function index()
     {
-        $advantage = Advantage::get();
-        return response()->json(['advantage' => $advantage]);
+        $advantages = Advantage::get();
+        return response()->json(['advantage' => $advantages]);
     }
 
+    /**
+     * @param $id
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function show($id)
     {
-        $advantage = Advantage::find($id);
-        return response()->json(['advantage' => $advantage]);
+        $advantages = Advantage::find($id);
+        return response()->json(['advantage' => $advantages]);
     }
 
+    /**
+     *
+     */
     public function create()
     {
         //
     }
 
+    /**
+     * @param AdvantageRequest $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function store(AdvantageRequest $request)
     {
         $data = $request->validated();
-        $advantage = Advantage::create($data);
-        return response()->json(['advantage' => $advantage]);
+        $advantages = Advantage::create($data);
+        return response()->json(['advantage' => $advantages]);
     }
 
+    /**
+     *
+     */
     public function edit()
     {
         //
     }
 
-    public function Update(AdvantageRequest $request, $id)
+    /**
+     * @param AdvantageRequest $request
+     * @param $id
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function update(AdvantageRequest $request, $id)
     {
-        $advantage = Advantage::find($id);
-        $data = $request->all();
-        $advantage->update($data);
-        return response()->json(['advantage' => $advantage]);
+        $advantages = Advantage::find($id);
+        $data = $request->validated();
+        $advantages->update($data);
+        return response()->json(['advantage' => $advantages]);
     }
 
+    /**
+     * @param $id
+     * @return string
+     */
     public function destroy($id)
     {
-        $advantage = Advantage::find($id);
-        $advantage->delete();
+        $advantages = Advantage::find($id);
+        $advantages->delete();
         return "ok";
     }
 }

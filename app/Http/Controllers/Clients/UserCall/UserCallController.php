@@ -8,6 +8,10 @@ use App\Models\UserCall;
 
 class UserCallController extends Controller
 {
+    /**
+     * @param UserCallRequest $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function store(UserCallRequest $request)
     {
         $data = $request->validated();

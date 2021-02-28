@@ -1,19 +1,19 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Action;
+namespace App\Http\Controllers\Admin\ActionValues;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\ActionRequest;
-use App\Models\Action;
+use App\Http\Requests\ActionValueRequest;
+use App\Models\ActionValue;
 
-class ActionController extends Controller
+class ActionValuesController extends Controller
 {
     /**
      * @return \Illuminate\Http\JsonResponse
      */
     public function index()
     {
-        $actions = Action::get();
+        $actions = ActionValue::get();
         return response()->json(['action' => $actions]);
     }
 
@@ -23,8 +23,8 @@ class ActionController extends Controller
      */
     public function show($id)
     {
-        $actions = Action::find($id);
-        return response()->json(['action' =>$actions]);
+        $actions = ActionValue::find($id);
+        return response()->json(['action' => $actions]);
     }
 
     /**
@@ -36,14 +36,14 @@ class ActionController extends Controller
     }
 
     /**
-     * @param ActionRequest $request
+     * @param ActionValueRequest $request
      * @return \Illuminate\Http\JsonResponse
      */
-    public function store(ActionRequest $request)
+    public function store(ActionValueRequest $request)
     {
         $data = $request->validated();
-        $actions = Action::create($data);
-        return response()->json(['action' =>$actions]);
+        $actions = ActionValue::create($data);
+        return response()->json(['action' => $actions]);
     }
 
     /**
@@ -55,16 +55,16 @@ class ActionController extends Controller
     }
 
     /**
-     * @param ActionRequest $request
+     * @param ActionValueRequest $request
      * @param $id
      * @return \Illuminate\Http\JsonResponse
      */
-    public function update(ActionRequest $request, $id)
+    public function update(ActionValueRequest $request, $id)
     {
-        $actions = Action::find($id);
+        $actions = ActionValue::find($id);
         $data = $request->validated();
         $actions->update($data);
-        return response()->json(['action' =>$actions]);
+        return response()->json(['action' => $actions]);
     }
 
     /**
@@ -73,10 +73,12 @@ class ActionController extends Controller
      */
     public function destroy($id)
     {
-        $actions = Action::find($id);
+        $actions = ActionValue::find($id);
         $actions->delete();
         return "ok";
     }
 }
+
+
 
 

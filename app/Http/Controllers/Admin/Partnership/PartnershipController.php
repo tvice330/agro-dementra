@@ -13,45 +13,68 @@ class PartnershipController extends Controller
      */
     public function index()
     {
-        $partnership = Partnership::get();
-        return response()->json(['partnership' => $partnership]);
+        $partnerships = Partnership::get();
+        return response()->json(['partnership' => $partnerships]);
     }
 
+    /**
+     * @param $id
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function show($id)
     {
-        $partnership = Partnership::find($id);
-        return response()->json(['partnership' => $partnership]);
+        $partnerships = Partnership::find($id);
+        return response()->json(['partnership' => $partnerships]);
     }
 
+    /**
+     *
+     */
     public function create()
     {
         //
     }
 
+    /**
+     * @param PartnershipRequest $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function store(PartnershipRequest $request)
     {
         $data = $request->validated();
-        $partnership = Partnership::create($data);
-        return response()->json(['partnership' => $partnership]);
+        $partnerships = Partnership::create($data);
+        return response()->json(['partnership' => $partnerships]);
     }
 
+    /**
+     *
+     */
     public function edit()
     {
         //
     }
 
+    /**
+     * @param PartnershipRequest $request
+     * @param $id
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function update(PartnershipRequest $request, $id)
     {
-        $partnership = Partnership::find($id);
-        $data = $request->all();
-        $partnership->update($data);
-        return response()->json(['partnership' => $partnership]);
+        $partnerships = Partnership::find($id);
+        $data = $request->validated();
+        $partnerships ->update($data);
+        return response()->json(['partnership' => $partnerships]);
     }
 
+    /**
+     * @param $id
+     * @return string
+     */
     public function destroy($id)
     {
-        $partnership = Partnership::find($id);
-        $partnership->delete();
+        $partnerships = Partnership::find($id);
+        $partnerships->delete();
         return "ok";
     }
 }

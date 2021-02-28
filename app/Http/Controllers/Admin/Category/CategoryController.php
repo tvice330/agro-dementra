@@ -13,45 +13,68 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $category = Category::get();
-        return response()->json(['category' => $category]);
+        $categoryies = Category::get();
+        return response()->json(['category' => $categoryies]);
     }
 
+    /**
+     * @param $id
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function show($id)
     {
-        $category = Category::find($id);
-        return response()->json(['category' => $category]);
+        $categoryies = Category::find($id);
+        return response()->json(['category' => $categoryies]);
     }
 
+    /**
+     *
+     */
     public function create()
     {
         //
     }
 
+    /**
+     * @param CategoryRequest $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function store(CategoryRequest $request)
     {
         $data = $request->validated();
-        $category = Category::create($data);
-        return response()->json(['category' => $category]);
+        $categoryies = Category::create($data);
+        return response()->json(['category' => $categoryies]);
     }
 
+    /**
+     *
+     */
     public function edit()
     {
         //
     }
 
+    /**
+     * @param CategoryRequest $request
+     * @param $id
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function update(CategoryRequest $request, $id)
     {
-        $category = Category::find($id);
-        $data = $request->all();
-        $category->update($data);
-        return response()->json(['category' => $category]);
+        $categoryies = Category::find($id);
+        $data = $request->validated();
+        $categoryies->update($data);
+        return response()->json(['category' => $categoryies]);
     }
 
+    /**
+     * @param $id
+     * @return string
+     */
     public function destroy($id)
     {
-        $category = Category::find($id);
-        $category->delete();
+        $categoryies = Category::find($id);
+        $categoryies->delete();
         return "ok";
     }
 }

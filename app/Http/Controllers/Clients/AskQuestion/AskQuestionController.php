@@ -8,6 +8,10 @@ use App\Models\AskQuestion;
 
 class AskQuestioncontroller extends Controller
 {
+    /**
+     * @param AskRequest $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function store(AskRequest $request)
     {
         $data = $request->validated();

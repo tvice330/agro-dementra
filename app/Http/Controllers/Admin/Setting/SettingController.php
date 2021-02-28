@@ -13,45 +13,68 @@ class SettingController extends Controller
      */
     public function index()
     {
-        $setting = Setting::get();
+        $settings = Setting::get();
         return response()->json(['setting' => $setting]);
     }
 
+    /**
+     * @param $id
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function show($id)
     {
-        $setting = Setting::find($id);
-        return response()->json(['setting' => $setting]);
+        $settings = Setting::find($id);
+        return response()->json(['setting' => $settings]);
     }
 
+    /**
+     *
+     */
     public function create()
     {
         //
     }
 
+    /**
+     * @param SettingRequest $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function store(SettingRequest $request)
     {
         $data = $request->validated();
-        $setting = Setting::create($data);
-        return response()->json(['setting' => $setting]);
+        $settings = Setting::create($data);
+        return response()->json(['setting' => $settings]);
     }
 
+    /**
+     *
+     */
     public function edit()
     {
         //
     }
 
+    /**
+     * @param SettingRequest $request
+     * @param $id
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function update(SettingRequest $request, $id)
     {
-        $setting = Setting::find($id);
+        $settings = Setting::find($id);
         $data = $request->all();
-        $setting->update($data);
-        return response()->json(['setting' => $setting]);
+        $settings->update($data);
+        return response()->json(['setting' => $settings]);
     }
 
+    /**
+     * @param $id
+     * @return string
+     */
     public function destroy($id)
     {
-        $setting = Setting::find($id);
-        $setting->delete();
+        $settings = Setting::find($id);
+        $settings->delete();
         return "ok";
     }
 }
