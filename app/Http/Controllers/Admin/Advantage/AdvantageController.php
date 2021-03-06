@@ -14,7 +14,7 @@ class AdvantageController extends Controller
     public function index()
     {
         $advantages = Advantage::get();
-        return response()->json(['advantage' => $advantages]);
+        return response()->json(['advantages' => $advantages]);
     }
 
     /**
@@ -23,16 +23,12 @@ class AdvantageController extends Controller
      */
     public function show($id)
     {
-        $advantages = Advantage::find($id);
-        return response()->json(['advantage' => $advantages]);
+        $advantage = Advantage::find($id);
+        return response()->json(['advantage' => $advantage]);
     }
 
-    /**
-     *
-     */
     public function create()
     {
-        //
     }
 
     /**
@@ -42,16 +38,13 @@ class AdvantageController extends Controller
     public function store(AdvantageRequest $request)
     {
         $data = $request->validated();
-        $advantages = Advantage::create($data);
-        return response()->json(['advantage' => $advantages]);
+        $advantage = Advantage::create($data);
+        return response()->json(['advantage' => $advantage]);
     }
 
-    /**
-     *
-     */
+
     public function edit()
     {
-        //
     }
 
     /**
@@ -61,10 +54,10 @@ class AdvantageController extends Controller
      */
     public function update(AdvantageRequest $request, $id)
     {
-        $advantages = Advantage::find($id);
+        $advantage = Advantage::find($id);
         $data = $request->validated();
-        $advantages->update($data);
-        return response()->json(['advantage' => $advantages]);
+        $advantage->update($data);
+        return response()->json(['advantage' => $advantage]);
     }
 
     /**
@@ -73,8 +66,8 @@ class AdvantageController extends Controller
      */
     public function destroy($id)
     {
-        $advantages = Advantage::find($id);
-        $advantages->delete();
+        $advantage = Advantage::find($id);
+        $advantage->delete();
         return "ok";
     }
 }

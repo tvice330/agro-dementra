@@ -13,7 +13,7 @@ class MenuController extends Controller
     public function index()
     {
         $menus = Menu::get();
-        return response()->json(['menu' => $menus]);
+        return response()->json(['menus' => $menus]);
     }
 
     /**
@@ -22,16 +22,12 @@ class MenuController extends Controller
      */
     public function show($id)
     {
-        $menus = Menu::find($id);
-        return response()->json(['menu' => $menus]);
+        $menu = Menu::find($id);
+        return response()->json(['menu' => $menu]);
     }
 
-    /**
-     *
-     */
     public function create()
     {
-        //
     }
 
     /**
@@ -41,16 +37,12 @@ class MenuController extends Controller
     public function store(MenuRequest $request)
     {
         $data = $request->validated();
-        $menus = Menu::create($data);
-        return response()->json(['menu' => $menus]);
+        $menu = Menu::create($data);
+        return response()->json(['menu' => $menu]);
     }
 
-    /**
-     *
-     */
     public function edit()
     {
-        //
     }
 
     /**
@@ -60,10 +52,10 @@ class MenuController extends Controller
      */
     public function update(MenuRequest $request, $id)
     {
-        $menus = Menu::find($id);
+        $menu = Menu::find($id);
         $data = $request->validated();
-        $menus->update($data);
-        return response()->json(['menu' => $menus]);
+        $menu->update($data);
+        return response()->json(['menu' => $menu]);
     }
 
     /**
@@ -72,8 +64,8 @@ class MenuController extends Controller
      */
     public function destroy($id)
     {
-        $menus = Menu::find($id);
-        $menus->delete();
+        $menu = Menu::find($id);
+        $menu->delete();
         return "ok";
     }
 }

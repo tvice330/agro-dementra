@@ -14,7 +14,7 @@ class CategoryController extends Controller
     public function index()
     {
         $categoryies = Category::get();
-        return response()->json(['category' => $categoryies]);
+        return response()->json(['categoryies' => $categoryies]);
     }
 
     /**
@@ -23,16 +23,12 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-        $categoryies = Category::find($id);
-        return response()->json(['category' => $categoryies]);
+        $category = Category::find($id);
+        return response()->json(['category' => $category]);
     }
 
-    /**
-     *
-     */
     public function create()
     {
-        //
     }
 
     /**
@@ -42,16 +38,12 @@ class CategoryController extends Controller
     public function store(CategoryRequest $request)
     {
         $data = $request->validated();
-        $categoryies = Category::create($data);
-        return response()->json(['category' => $categoryies]);
+        $category = Category::create($data);
+        return response()->json(['category' => $category]);
     }
 
-    /**
-     *
-     */
     public function edit()
     {
-        //
     }
 
     /**
@@ -61,10 +53,10 @@ class CategoryController extends Controller
      */
     public function update(CategoryRequest $request, $id)
     {
-        $categoryies = Category::find($id);
+        $category = Category::find($id);
         $data = $request->validated();
-        $categoryies->update($data);
-        return response()->json(['category' => $categoryies]);
+        $category->update($data);
+        return response()->json(['category' => $category]);
     }
 
     /**
@@ -73,8 +65,8 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        $categoryies = Category::find($id);
-        $categoryies->delete();
+        $category = Category::find($id);
+        $category->delete();
         return "ok";
     }
 }

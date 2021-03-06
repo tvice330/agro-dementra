@@ -14,7 +14,7 @@ class PartnershipController extends Controller
     public function index()
     {
         $partnerships = Partnership::get();
-        return response()->json(['partnership' => $partnerships]);
+        return response()->json(['partnerships' => $partnerships]);
     }
 
     /**
@@ -23,16 +23,12 @@ class PartnershipController extends Controller
      */
     public function show($id)
     {
-        $partnerships = Partnership::find($id);
-        return response()->json(['partnership' => $partnerships]);
+        $partnership = Partnership::find($id);
+        return response()->json(['partnership' => $partnership]);
     }
 
-    /**
-     *
-     */
     public function create()
     {
-        //
     }
 
     /**
@@ -42,16 +38,12 @@ class PartnershipController extends Controller
     public function store(PartnershipRequest $request)
     {
         $data = $request->validated();
-        $partnerships = Partnership::create($data);
-        return response()->json(['partnership' => $partnerships]);
+        $partnership = Partnership::create($data);
+        return response()->json(['partnership' => $partnership]);
     }
 
-    /**
-     *
-     */
     public function edit()
     {
-        //
     }
 
     /**
@@ -61,10 +53,10 @@ class PartnershipController extends Controller
      */
     public function update(PartnershipRequest $request, $id)
     {
-        $partnerships = Partnership::find($id);
+        $partnership = Partnership::find($id);
         $data = $request->validated();
-        $partnerships ->update($data);
-        return response()->json(['partnership' => $partnerships]);
+        $partnership ->update($data);
+        return response()->json(['partnership' => $partnership]);
     }
 
     /**
@@ -73,8 +65,8 @@ class PartnershipController extends Controller
      */
     public function destroy($id)
     {
-        $partnerships = Partnership::find($id);
-        $partnerships->delete();
+        $partnership = Partnership::find($id);
+        $partnership->delete();
         return "ok";
     }
 }

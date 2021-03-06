@@ -13,8 +13,8 @@ class ActionValuesController extends Controller
      */
     public function index()
     {
-        $actions = ActionValue::get();
-        return response()->json(['action' => $actions]);
+        $action_values = ActionValue::get();
+        return response()->json(['action_values' => $action_values]);
     }
 
     /**
@@ -23,16 +23,12 @@ class ActionValuesController extends Controller
      */
     public function show($id)
     {
-        $actions = ActionValue::find($id);
-        return response()->json(['action' => $actions]);
+        $action_value = ActionValue::find($id);
+        return response()->json(['action_value' => $action_value]);
     }
 
-    /**
-     *
-     */
     public function create()
     {
-        //
     }
 
     /**
@@ -42,16 +38,12 @@ class ActionValuesController extends Controller
     public function store(ActionValueRequest $request)
     {
         $data = $request->validated();
-        $actions = ActionValue::create($data);
-        return response()->json(['action' => $actions]);
+        $action_value = ActionValue::create($data);
+        return response()->json(['action_value' => $action_value]);
     }
 
-    /**
-     *
-     */
     public function edit()
     {
-        //
     }
 
     /**
@@ -61,10 +53,10 @@ class ActionValuesController extends Controller
      */
     public function update(ActionValueRequest $request, $id)
     {
-        $actions = ActionValue::find($id);
+        $action = ActionValue::find($id);
         $data = $request->validated();
-        $actions->update($data);
-        return response()->json(['action' => $actions]);
+        $action_value->update($data);
+        return response()->json(['action_value' => $action_value]);
     }
 
     /**
@@ -73,8 +65,8 @@ class ActionValuesController extends Controller
      */
     public function destroy($id)
     {
-        $actions = ActionValue::find($id);
-        $actions->delete();
+        $action_value = ActionValue::find($id);
+        $action_value -> delete();
         return "ok";
     }
 }

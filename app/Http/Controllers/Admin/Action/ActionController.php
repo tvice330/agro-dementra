@@ -14,7 +14,7 @@ class ActionController extends Controller
     public function index()
     {
         $actions = Action::get();
-        return response()->json(['action' => $actions]);
+        return response()->json(['actions' => $actions]);
     }
 
     /**
@@ -23,16 +23,12 @@ class ActionController extends Controller
      */
     public function show($id)
     {
-        $actions = Action::find($id);
-        return response()->json(['action' =>$actions]);
+        $action = Action::find($id);
+        return response()->json(['action' =>$action]);
     }
 
-    /**
-     *
-     */
     public function create()
     {
-        //
     }
 
     /**
@@ -42,16 +38,12 @@ class ActionController extends Controller
     public function store(ActionRequest $request)
     {
         $data = $request->validated();
-        $actions = Action::create($data);
-        return response()->json(['action' =>$actions]);
+        $action = Action::create($data);
+        return response()->json(['action' =>$action]);
     }
 
-    /**
-     *
-     */
     public function edit()
     {
-        //
     }
 
     /**
@@ -61,10 +53,10 @@ class ActionController extends Controller
      */
     public function update(ActionRequest $request, $id)
     {
-        $actions = Action::find($id);
+        $action = Action::find($id);
         $data = $request->validated();
-        $actions->update($data);
-        return response()->json(['action' =>$actions]);
+        $action->update($data);
+        return response()->json(['action' =>$action]);
     }
 
     /**
@@ -73,8 +65,8 @@ class ActionController extends Controller
      */
     public function destroy($id)
     {
-        $actions = Action::find($id);
-        $actions->delete();
+        $action  = Action::find($id);
+        $action->delete();
         return "ok";
     }
 }
