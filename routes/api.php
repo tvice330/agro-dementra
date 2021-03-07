@@ -50,3 +50,9 @@ Route::get('/action_values/{id}', 'Admin\ActionValues\ActionValuesController@sho
 Route::post('/action_values', 'Admin\ActionValues\ActionValuesController@store');
 Route::put('/action_values/{id}', 'Admin\ActionValues\ActionValuesController@update');
 Route::delete('/action_values/{id}', 'Admin\ActionValues\ActionValuesController@destroy');
+
+Route::get('/company_descriptions/{id}', 'Admin\CompanyDescription\CompanyDescriptionController@index');
+Route::get('/company_descriptions/{id}', 'Admin\CompanyDescription\CompanyDescriptionController@show');
+Route::post('/company_descriptions', 'Admin\CompanyDescription\CompanyDescriptionController@store');
+Route::put('/company_descriptions/{id}', 'Admin\CompanyDescription\CompanyDescriptionController@update');
+Route::delete('/company_descriptions/{id}', 'Admin\CompanyDescription\CompanyDescriptionController@destroy');
