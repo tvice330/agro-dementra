@@ -12,8 +12,8 @@ class ActionController extends Controller
      */
     public function index()
     {
-        $data = Action::with('action_values')->get();
-        return response()->json(['data' => $data]);
+        $values = Action::with('action_values')->get();
+        return response()->json(['values' => $values]);
     }
 }
 

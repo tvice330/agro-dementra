@@ -30,7 +30,7 @@ class CompanyDescriptionRequest extends FormRequest
             'count_regions' => 'required|integer',
             'description_regions' => 'required|string',
             'description' => 'required|text',
-            'image' => 'required|string',
+            'image' => 'required',
         ];
     }
 }

@@ -12,8 +12,8 @@ class AdvantageController extends Controller
      */
     public function index()
     {
-        $data = Advantage::active()->byPosition()->get();
-        return response()->json(['data' => $data]);
+        $values= Advantage::active()->byPosition()->get();
+        return response()->json(['values' => $values]);
     }
 }
 

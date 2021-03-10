@@ -12,8 +12,8 @@ class PartnershipController extends Controller
      */
     public function index()
     {
-        $data = Partnership::active()->byPosition()->get();
-        return response()->json(['data' => $data]);
+        $values = Partnership::active()->byPosition()->get();
+        return response()->json(['values' => $values]);
     }
 }
 

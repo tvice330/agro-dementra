@@ -54,7 +54,7 @@ class SettingController extends Controller
     public function update(SettingRequest $request, $id)
     {
         $setting = Setting::find($id);
-        $data = $request->all();
+        $data = $request->validated();
         $setting->update($data);
         return response()->json(['setting' => $setting]);
     }

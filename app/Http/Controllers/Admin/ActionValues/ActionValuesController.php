@@ -53,7 +53,7 @@ class ActionValuesController extends Controller
      */
     public function update(ActionValueRequest $request, $id)
     {
-        $action = ActionValue::find($id);
+        $action_value = ActionValue::find($id);
         $data = $request->validated();
         $action_value->update($data);
         return response()->json(['action_value' => $action_value]);
@@ -66,7 +66,7 @@ class ActionValuesController extends Controller
     public function destroy($id)
     {
         $action_value = ActionValue::find($id);
-        $action_value -> delete();
+        $action_value->delete();
         return "ok";
     }
 }

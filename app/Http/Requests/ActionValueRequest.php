@@ -26,7 +26,7 @@ class ActionValueRequest extends FormRequest
         return [
             'title' => 'required|string',
             'active' => 'required|boolean',
-            'action_id' => 'required|integer',
+            'action_id' => 'required|exists:actions,id',
         ];
     }
 }
