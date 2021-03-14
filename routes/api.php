@@ -1,9 +1,12 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-Route::namespace('Admin')->prefix('/admin')->group(function () {
+Route::group([
+    'namespace' => 'Admin',
+    'prefix' => 'admin',
+    'middleware' => 'auth'
+], function () {
     Route::apiResource('menus', 'Menu\MenuController');
     Route::apiResource('settings', 'Setting\SettingController');
     Route::apiResource('advantages', 'Advantage\AdvantageController');
