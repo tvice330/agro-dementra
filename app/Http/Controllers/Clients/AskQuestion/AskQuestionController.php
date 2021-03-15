@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Clients\AskQuestion;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\AskRequest;
+use App\Http\Resources\AskQuestionResource;
 use App\Models\AskQuestion;
 
 class AskQuestioncontroller extends Controller
@@ -15,8 +16,8 @@ class AskQuestioncontroller extends Controller
     public function store(AskRequest $request)
     {
         $data = $request->validated();
-        $ask = AskQuestion::create($data);
-        return response()->json(['ask' => $ask]);
+        $values = AskQuestion::create($data);
+        return response()->json(['values' => new AskQuestionResource($values)]);
     }
 }
 

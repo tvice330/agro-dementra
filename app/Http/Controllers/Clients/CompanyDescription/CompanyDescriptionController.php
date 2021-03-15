@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Clients\CompanyDescription;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\CompanyDescriptionsResource;
 use App\Models\CompanyDescription;
 
 class CompanyDescriptionController extends Controller
@@ -12,7 +13,7 @@ class CompanyDescriptionController extends Controller
      */
     public function index()
     {
-        $company_description = CompanyDescription::get();
-        return response()->json(['company_description' => $company_description]);
+        $company_descriptions = CompanyDescription::get();
+        return response()->json(['company_descriptions' => new CompanyDescriptionsResource($company_descriptions)]);
     }
 }

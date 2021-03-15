@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Clients\UserCall;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UserCallRequest;
+use App\Http\Resources\UserCallResource;
 use App\Models\UserCall;
 
 class UserCallController extends Controller
@@ -16,7 +17,7 @@ class UserCallController extends Controller
     {
         $data = $request->validated();
         $user = UserCall::create($data);
-        return response()->json(['user ' => $user]);
+        return response()->json(['user ' => new UserCallResource($user)]);
     }
 }
 

@@ -27,10 +27,6 @@ class ActionController extends Controller
         return response()->json(['action' =>$action]);
     }
 
-    public function create()
-    {
-    }
-
     /**
      * @param ActionRequest $request
      * @return \Illuminate\Http\JsonResponse
@@ -38,12 +34,8 @@ class ActionController extends Controller
     public function store(ActionRequest $request)
     {
         $data = $request->validated();
-        $action = Action::create($data);
-        return response()->json(['action' =>$action]);
-    }
-
-    public function edit()
-    {
+        $actions = Action::create($data);
+        return response()->json(['actions' =>$actions]);
     }
 
     /**

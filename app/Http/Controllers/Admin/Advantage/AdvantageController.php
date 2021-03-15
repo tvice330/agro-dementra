@@ -3,8 +3,12 @@
 namespace App\Http\Controllers\Admin\Advantage;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\AdvantageoneResource;
+use App\Http\Resources\AdvantagesResource;
 use App\Models\Advantage;
 use App\Http\Requests\AdvantageRequest;
+
+
 
 class AdvantageController extends Controller
 {
@@ -14,7 +18,7 @@ class AdvantageController extends Controller
     public function index()
     {
         $advantages = Advantage::get();
-        return response()->json(['advantages' => $advantages]);
+        return response()->json(['advantages' => new AdvantagesResource($advantages)]);
     }
 
     /**
@@ -24,11 +28,7 @@ class AdvantageController extends Controller
     public function show($id)
     {
         $advantage = Advantage::find($id);
-        return response()->json(['advantage' => $advantage]);
-    }
-
-    public function create()
-    {
+        return response()->json(['advantage' => new AdvantageoneResource($advantage)]);
     }
 
     /**
@@ -38,13 +38,8 @@ class AdvantageController extends Controller
     public function store(AdvantageRequest $request)
     {
         $data = $request->validated();
-        $advantage = Advantage::create($data);
-        return response()->json(['advantage' => $advantage]);
-    }
-
-
-    public function edit()
-    {
+        $advantages = Advantage::create($data);
+        return response()->json(['advantages' => new AdvantagesResource($advantages)]);
     }
 
     /**
@@ -57,7 +52,7 @@ class AdvantageController extends Controller
         $advantage = Advantage::find($id);
         $data = $request->validated();
         $advantage->update($data);
-        return response()->json(['advantage' => $advantage]);
+        return response()->json(['advantage' =>  new AdvantageoneResource($advantage)]);
     }
 
     /**
@@ -68,7 +63,7 @@ class AdvantageController extends Controller
     {
         $advantage = Advantage::find($id);
         $advantage->delete();
-        return "ok";
+        return $this->index();
     }
 }
 

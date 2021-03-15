@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin\Partnership;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\PartnershiponeResource;
+use App\Http\Resources\PartnershipsResource;
 use App\Models\Partnership;
 use App\Http\Requests\PartnershipRequest;
 
@@ -14,7 +16,7 @@ class PartnershipController extends Controller
     public function index()
     {
         $partnerships = Partnership::get();
-        return response()->json(['partnerships' => $partnerships]);
+        return response()->json(['partnerships' => new PartnershipsResource($partnerships)]);
     }
 
     /**
@@ -24,11 +26,7 @@ class PartnershipController extends Controller
     public function show($id)
     {
         $partnership = Partnership::find($id);
-        return response()->json(['partnership' => $partnership]);
-    }
-
-    public function create()
-    {
+        return response()->json(['partnership' => new PartnershiponeResource($partnership)]);
     }
 
     /**
@@ -38,12 +36,8 @@ class PartnershipController extends Controller
     public function store(PartnershipRequest $request)
     {
         $data = $request->validated();
-        $partnership = Partnership::create($data);
-        return response()->json(['partnership' => $partnership]);
-    }
-
-    public function edit()
-    {
+        $partnerships = Partnership::create($data);
+        return response()->json(['partnerships' => new PartnershipsResource($partnerships)]);
     }
 
     /**
@@ -56,7 +50,7 @@ class PartnershipController extends Controller
         $partnership = Partnership::find($id);
         $data = $request->validated();
         $partnership ->update($data);
-        return response()->json(['partnership' => $partnership]);
+        return response()->json(['partnership' => new PartnershiponeResource($partnership)]);
     }
 
     /**
@@ -67,7 +61,7 @@ class PartnershipController extends Controller
     {
         $partnership = Partnership::find($id);
         $partnership->delete();
-        return "ok";
+        return $this->index();
     }
 }
 
