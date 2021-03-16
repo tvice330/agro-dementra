@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin\Setting;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\SettingoneResource;
+use App\Http\Resources\SettingOneResource;
 use App\Http\Resources\SettingsResource;
 use App\Models\Setting;
 use App\Http\Requests\SettingRequest;
@@ -26,7 +26,7 @@ class SettingController extends Controller
     public function show($id)
     {
         $setting = Setting::find($id);
-        return response()->json(['setting' => new SettingoneResource($setting)]);
+        return response()->json(['setting' => new SettingOneResource($setting)]);
     }
 
     /**
@@ -36,8 +36,8 @@ class SettingController extends Controller
     public function store(SettingRequest $request)
     {
         $data = $request->validated();
-        $settings = Setting::create($data);
-        return response()->json(['settings' => new SettingsResource($settings)]);
+        $setting = Setting::create($data);
+        return response()->json(['setting' => new SettingOneResource($setting)]);
     }
 
     /**
@@ -50,7 +50,7 @@ class SettingController extends Controller
         $setting = Setting::find($id);
         $data = $request->validated();
         $setting->update($data);
-        return response()->json(['setting' => new SettingoneResource($setting)]);
+        return response()->json(['setting' => new SettingOneResource($setting)]);
     }
 
     /**

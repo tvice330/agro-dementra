@@ -3,10 +3,11 @@
 namespace App\Http\Controllers\Admin\Menu;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\MenuoneResource;
+use App\Http\Resources\MenuOneResource;
 use App\Http\Resources\MenusResource;
 use App\Models\Menu;
 use App\Http\Requests\MenuRequest;
+
 class MenuController extends Controller
 {
     /**
@@ -25,7 +26,7 @@ class MenuController extends Controller
     public function show($id)
     {
         $menu = Menu::find($id);
-        return response()->json(['menu' => new MenuoneResource($menu)]);
+        return response()->json(['menu' => new MenuOneResource($menu)]);
     }
 
     /**
@@ -35,8 +36,8 @@ class MenuController extends Controller
     public function store(MenuRequest $request)
     {
         $data = $request->validated();
-        $menus = Menu::create($data);
-        return response()->json(['menus' => new MenusResource($menus)]);
+        $menu = Menu::create($data);
+        return response()->json(['menu' => new MenuOneResource($menu)]);
     }
 
     /**
@@ -49,7 +50,7 @@ class MenuController extends Controller
         $menu = Menu::find($id);
         $data = $request->validated();
         $menu->update($data);
-        return response()->json(['menu' => new MenuoneResource($menu)]);
+        return response()->json(['menu' => new MenuOneResource($menu)]);
     }
 
     /**

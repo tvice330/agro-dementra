@@ -13,7 +13,7 @@ class AdvantageController extends Controller
      */
     public function index()
     {
-        $values= Advantage::active()->byPosition()->get();
+        $values = Advantage::active()->byPosition()->get();
         return response()->json(['values' => new AdvantagesResource($values)]);
     }
 }

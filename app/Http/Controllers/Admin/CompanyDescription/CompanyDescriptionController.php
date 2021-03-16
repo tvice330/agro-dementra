@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin\CompanyDescription;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\CompanyDescriptiononeResource;
+use App\Http\Resources\CompanyDescriptionOneResource;
 use App\Http\Resources\CompanyDescriptionsResource;
 use App\Models\CompanyDescription;
 use App\Http\Requests\CompanyDescriptionRequest;
@@ -26,7 +26,7 @@ class CompanyDescriptionController extends Controller
     public function show($id)
     {
         $company_description = CompanyDescription::find($id);
-        return response()->json(['company_description' => new CompanyDescriptiononeResource($company_description)]);
+        return response()->json(['company_description' => new CompanyDescriptionOneResource($company_description)]);
     }
 
     /**
@@ -36,8 +36,8 @@ class CompanyDescriptionController extends Controller
     public function store(CompanyDescriptionRequest $request)
     {
         $data = $request->validated();
-        $company_descriptions = CompanyDescription::create($data);
-        return response()->json(['company_descriptions' => new CompanyDescriptionsResource($company_descriptions)]);
+        $company_description = CompanyDescription::create($data);
+        return response()->json(['company_description' => new CompanyDescriptionOneResource($company_description)]);
     }
 
     /**
@@ -50,7 +50,7 @@ class CompanyDescriptionController extends Controller
         $company_description = CompanyDescription::find($id);
         $data = $request->validated();
         $company_description->update($data);
-        return response()->json(['company_description' => new CompanyDescriptiononeResource($company_description)]);
+        return response()->json(['company_description' => new CompanyDescriptionOneResource($company_description)]);
     }
 
     /**

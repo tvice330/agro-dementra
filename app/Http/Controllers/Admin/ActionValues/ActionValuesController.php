@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin\ActionValues;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ActionValueRequest;
+use App\Http\Resources\ActionValueOneResource;
+use App\Http\Resources\ActionValuesResource;
 use App\Models\ActionValue;
 
 class ActionValuesController extends Controller
@@ -14,7 +16,7 @@ class ActionValuesController extends Controller
     public function index()
     {
         $action_values = ActionValue::get();
-        return response()->json(['action_values' => $action_values]);
+        return response()->json(['action_values' => new ActionValuesResource($action_values)]);
     }
 
     /**
@@ -24,7 +26,7 @@ class ActionValuesController extends Controller
     public function show($id)
     {
         $action_value = ActionValue::find($id);
-        return response()->json(['action_value' => $action_value]);
+        return response()->json(['action_value' => new ActionValueOneResource($action_value)]);
     }
 
     /**
@@ -34,8 +36,8 @@ class ActionValuesController extends Controller
     public function store(ActionValueRequest $request)
     {
         $data = $request->validated();
-        $action_values = ActionValue::create($data);
-        return response()->json(['action_values' => $action_values]);
+        $action_value = ActionValue::create($data);
+        return response()->json(['action_value' => new ActionValueOneResource($action_value)]);
     }
 
     /**
@@ -48,7 +50,7 @@ class ActionValuesController extends Controller
         $action_value = ActionValue::find($id);
         $data = $request->validated();
         $action_value->update($data);
-        return response()->json(['action_value' => $action_value]);
+        return response()->json(['action_value' => new ActionValueOneResource($action_value)]);
     }
 
     /**
@@ -59,7 +61,7 @@ class ActionValuesController extends Controller
     {
         $action_value = ActionValue::find($id);
         $action_value->delete();
-        return "ok";
+        return $this->index();
     }
 }
 

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin\Category;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\CategeryoneResource;
+use App\Http\Resources\CategoryOneResource;
 use App\Http\Resources\CategoriesResource;
 use App\Models\Category;
 use App\Http\Requests\CategoryRequest;
@@ -26,7 +26,7 @@ class CategoryController extends Controller
     public function show($id)
     {
         $category = Category::find($id);
-        return response()->json(['category' => new CategeryoneResource($category)]);
+        return response()->json(['category' => new CategoryOneResource($category)]);
     }
 
     /**
@@ -36,8 +36,8 @@ class CategoryController extends Controller
     public function store(CategoryRequest $request)
     {
         $data = $request->validated();
-        $categories = Category::create($data);
-        return response()->json(['categories' => new CategoriesResource($categories)]);
+        $category = Category::create($data);
+        return response()->json(['category' => new CategoryOneResource($category)]);
     }
 
     /**
@@ -50,7 +50,7 @@ class CategoryController extends Controller
         $category = Category::find($id);
         $data = $request->validated();
         $category->update($data);
-        return response()->json(['category' => new CategeryoneResource($category)]);
+        return response()->json(['category' => new CategoryOneResource($category)]);
     }
 
     /**
@@ -59,7 +59,7 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        $category= Category::find($id);
+        $category = Category::find($id);
         $category->delete();
         return $this->index();
     }

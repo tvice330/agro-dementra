@@ -3,11 +3,10 @@
 namespace App\Http\Controllers\Admin\Advantage;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\AdvantageoneResource;
 use App\Http\Resources\AdvantagesResource;
+use App\Http\Resources\AdvantegeOneResource;
 use App\Models\Advantage;
 use App\Http\Requests\AdvantageRequest;
-
 
 
 class AdvantageController extends Controller
@@ -28,7 +27,7 @@ class AdvantageController extends Controller
     public function show($id)
     {
         $advantage = Advantage::find($id);
-        return response()->json(['advantage' => new AdvantageoneResource($advantage)]);
+        return response()->json(['advantage' => new AdvantegeOneResource($advantage)]);
     }
 
     /**
@@ -38,8 +37,8 @@ class AdvantageController extends Controller
     public function store(AdvantageRequest $request)
     {
         $data = $request->validated();
-        $advantages = Advantage::create($data);
-        return response()->json(['advantages' => new AdvantagesResource($advantages)]);
+        $advantage = Advantage::create($data);
+        return response()->json(['advantage' => new AdvantegeOneResource($advantage)]);
     }
 
     /**
@@ -52,7 +51,7 @@ class AdvantageController extends Controller
         $advantage = Advantage::find($id);
         $data = $request->validated();
         $advantage->update($data);
-        return response()->json(['advantage' =>  new AdvantageoneResource($advantage)]);
+        return response()->json(['advantage' => new AdvantegeOneResource($advantage)]);
     }
 
     /**

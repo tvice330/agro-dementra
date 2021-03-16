@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class CategeryoneResource extends JsonResource
+class MenuOneResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -17,9 +17,9 @@ class CategeryoneResource extends JsonResource
         return [
             "name" => $this->name,
             "position" => $this->position,
-            "active" => $this->active
+            "active" => $this->active,
+            "alias" => $this->alias,
         ];
 
     }
 }
-

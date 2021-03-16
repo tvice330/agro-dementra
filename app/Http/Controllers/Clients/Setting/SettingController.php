@@ -13,7 +13,7 @@ class SettingController extends Controller
      */
     public function index()
     {
-        $values= Setting::get();
+        $values = Setting::get();
         return response()->json(['values' => new SettingsResource($values)]);
     }
 }

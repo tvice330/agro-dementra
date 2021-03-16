@@ -13,7 +13,7 @@ class MenuController extends Controller
      */
     public function index()
     {
-        $values= Menu::active()->byPosition()->get();
+        $values = Menu::active()->byPosition()->get();
         return response()->json(['values' => new MenusResource($values)]);
     }
 }

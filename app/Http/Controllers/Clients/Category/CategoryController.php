@@ -14,7 +14,7 @@ class CategoryController extends Controller
     public function index()
     {
         $values = Category::active()->byPosition()->get();
-        return response()->json(['values' =>new CategoriesResource($values)]);
+        return response()->json(['values' => new CategoriesResource($values)]);
     }
 }
 

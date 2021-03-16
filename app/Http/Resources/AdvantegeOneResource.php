@@ -4,12 +4,12 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class AdvantageoneResource extends JsonResource
+class AdvantegeOneResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return array
      */
     public function toArray($request)
@@ -19,6 +19,6 @@ class AdvantageoneResource extends JsonResource
             "position" => $this->position,
             "active" => $this->active
         ];
-
     }
 }
+

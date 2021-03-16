@@ -16,8 +16,8 @@ class AskQuestioncontroller extends Controller
     public function store(AskRequest $request)
     {
         $data = $request->validated();
-        $values = AskQuestion::create($data);
-        return response()->json(['values' => new AskQuestionResource($values)]);
+        $value = AskQuestion::create($data);
+        return response()->json(['value' => new AskQuestionResource($value)]);
     }
 }
 

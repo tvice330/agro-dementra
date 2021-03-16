@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin\Partnership;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\PartnershiponeResource;
+use App\Http\Resources\PartnershipOneResource;
 use App\Http\Resources\PartnershipsResource;
 use App\Models\Partnership;
 use App\Http\Requests\PartnershipRequest;
@@ -26,7 +26,7 @@ class PartnershipController extends Controller
     public function show($id)
     {
         $partnership = Partnership::find($id);
-        return response()->json(['partnership' => new PartnershiponeResource($partnership)]);
+        return response()->json(['partnership' => new PartnershipOneResource($partnership)]);
     }
 
     /**
@@ -36,8 +36,8 @@ class PartnershipController extends Controller
     public function store(PartnershipRequest $request)
     {
         $data = $request->validated();
-        $partnerships = Partnership::create($data);
-        return response()->json(['partnerships' => new PartnershipsResource($partnerships)]);
+        $partnership = Partnership::create($data);
+        return response()->json(['partnership' => new PartnershipOneResource($partnership)]);
     }
 
     /**
@@ -49,8 +49,8 @@ class PartnershipController extends Controller
     {
         $partnership = Partnership::find($id);
         $data = $request->validated();
-        $partnership ->update($data);
-        return response()->json(['partnership' => new PartnershiponeResource($partnership)]);
+        $partnership->update($data);
+        return response()->json(['partnership' => new PartnershipOneResource($partnership)]);
     }
 
     /**

@@ -14,7 +14,7 @@ class PartnershipController extends Controller
     public function index()
     {
         $values = Partnership::active()->byPosition()->get();
-        return response()->json(['values' =>new PartnershipsResource($values)]);
+        return response()->json(['values' => new PartnershipsResource($values)]);
     }
 }
 
