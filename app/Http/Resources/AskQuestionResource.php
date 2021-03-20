@@ -17,7 +17,7 @@ class AskQuestionResource extends JsonResource
         return [
             "name" => $this->name,
             "phone" => $this->phone,
-            "massage" => $this->massage,
+            "message" => $this->message,
         ];
     }
 }
