@@ -18,6 +18,5 @@ class ActionOneResource extends JsonResource
             "title" => $this->title,
             "active" => $this->active,
         ];
-
     }
 }

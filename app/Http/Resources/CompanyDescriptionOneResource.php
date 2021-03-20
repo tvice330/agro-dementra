@@ -23,6 +23,5 @@ class CompanyDescriptionOneResource extends JsonResource
             "description" => $this->description,
             "image" => $this->image,
         ];
-
     }
 }

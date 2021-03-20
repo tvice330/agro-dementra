@@ -23,7 +23,6 @@ class CategoriesResource extends JsonResource
             ];
         }
         return $grades;
-
     }
 }
 

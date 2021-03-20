@@ -27,7 +27,6 @@ class CompanyDescriptionsResource extends JsonResource
             ];
         }
         return $grades;
-
     }
 }
 

@@ -42,7 +42,7 @@ class ApiAuthController extends Controller
                 $response['token'] = $token;
                 return response($response, 200);
             } else {
-                $response = ["message" => "Password mismatch"];
+                $response['message'] = "Password mismatch";
                 return response($response, 422);
             }
         } else {

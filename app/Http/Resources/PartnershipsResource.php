@@ -24,7 +24,6 @@ class PartnershipsResource extends JsonResource
             ];
         }
         return $grades;
-
     }
 }
 

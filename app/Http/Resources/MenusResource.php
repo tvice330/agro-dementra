@@ -24,7 +24,6 @@ class MenusResource extends JsonResource
             ];
         }
         return $grades;
-
     }
 }
 

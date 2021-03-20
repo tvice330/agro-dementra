@@ -22,7 +22,6 @@ class SettingsResource extends JsonResource
             ];
         }
         return $grades;
-
     }
 }
 

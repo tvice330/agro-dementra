@@ -23,6 +23,5 @@ class ActionValuesResource extends JsonResource
             ];
         }
         return $grades;
-
     }
 }

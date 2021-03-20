@@ -18,6 +18,5 @@ class SettingOneResource extends JsonResource
             "key" => $this->key,
             "value" => $this->value,
         ];
-
     }
 }

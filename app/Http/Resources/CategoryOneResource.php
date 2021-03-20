@@ -19,6 +19,5 @@ class CategoryOneResource extends JsonResource
             "position" => $this->position,
             "active" => $this->active
         ];
-
     }
 }

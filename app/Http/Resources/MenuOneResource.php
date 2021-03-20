@@ -20,6 +20,5 @@ class MenuOneResource extends JsonResource
             "active" => $this->active,
             "alias" => $this->alias,
         ];
-
     }
 }
