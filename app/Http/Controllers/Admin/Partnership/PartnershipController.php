@@ -7,16 +7,20 @@ use App\Http\Resources\PartnershipOneResource;
 use App\Http\Resources\PartnershipsResource;
 use App\Models\Partnership;
 use App\Http\Requests\PartnershipRequest;
+use App\Traits\ResponseTrait;
 
 class PartnershipController extends Controller
 {
+    use ResponseTrait;
+
     /**
      * @return \Illuminate\Http\JsonResponse
      */
     public function index()
     {
         $partnerships = Partnership::get();
-        return response()->json(['partnerships' => new PartnershipsResource($partnerships)]);
+        $response['partnerships'] = new PartnershipsResource($partnerships);
+        return self::okResponse($response);
     }
 
     /**
@@ -26,7 +30,8 @@ class PartnershipController extends Controller
     public function show($id)
     {
         $partnership = Partnership::find($id);
-        return response()->json(['partnership' => new PartnershipOneResource($partnership)]);
+        $response['partnership'] = new PartnershipOneResource($partnership);
+        return self::okResponse($response);
     }
 
     /**
@@ -37,7 +42,8 @@ class PartnershipController extends Controller
     {
         $data = $request->validated();
         $partnership = Partnership::create($data);
-        return response()->json(['partnership' => new PartnershipOneResource($partnership)]);
+        $response['partnership'] = new PartnershipOneResource($partnership);
+        return self::okResponse($response);
     }
 
     /**
@@ -50,7 +56,8 @@ class PartnershipController extends Controller
         $partnership = Partnership::find($id);
         $data = $request->validated();
         $partnership->update($data);
-        return response()->json(['partnership' => new PartnershipOneResource($partnership)]);
+        $response['partnership'] = new PartnershipOneResource($partnership);
+        return self::okResponse($response);
     }
 
     /**

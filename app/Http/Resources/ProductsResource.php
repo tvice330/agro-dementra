@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class ActionValuesResource extends JsonResource
+class ProductsResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -17,12 +17,18 @@ class ActionValuesResource extends JsonResource
         $grades = [];
         foreach ($this->resource as $grade) {
             $grades[] = [
+
                 "name" => $grade->name,
-                "action_id" => $grade->action_id,
+                "price" => $grade->price,
+                "description" => $grade->description,
+                "active" => $grade->active,
                 "position" => $grade->position,
-                "active" => $grade->active
+                "category_id" => $grade->category_id,
+                "conditions" => $grade->conditions,
+                "image" => $grade->image,
             ];
         }
         return $grades;
     }
 }
+

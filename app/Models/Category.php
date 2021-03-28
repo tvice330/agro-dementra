@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Category extends Model
 {
     protected $fillable = [
-        'name', 'position', 'active',
+        'name', 'position', 'active', 'alias',
     ];
 
     public function scopeActive($query)

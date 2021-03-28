@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Http\Controllers\Admin\ActionValues;
+namespace App\Http\Controllers\Admin\Product;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\ActionValueRequest;
-use App\Http\Resources\ActionValueOneResource;
-use App\Http\Resources\ActionValuesResource;
-use App\Models\ActionValue;
+use App\Http\Resources\ProductoneResource;
+use App\Http\Resources\ProductsResource;
+use App\Models\Product;
 use App\Traits\ResponseTrait;
+use Illuminate\Http\Request;
 
-class ActionValuesController extends Controller
+class ProductController extends Controller
 {
     use ResponseTrait;
 
@@ -18,8 +18,8 @@ class ActionValuesController extends Controller
      */
     public function index()
     {
-        $action_values = ActionValue::get();
-        $response['action_values'] = new ActionValuesResource($action_values);
+        $products = Product::get();
+        $response['products'] = new ProductsResource($products);
         return self::okResponse($response);
     }
 
@@ -29,8 +29,8 @@ class ActionValuesController extends Controller
      */
     public function show($id)
     {
-        $action_value = ActionValue::find($id);
-        $response['action_value'] = new ActionValueOneResource($action_value);
+        $product = Product::find($id);
+        $response['product'] = new ProductoneResource( $product);
         return self::okResponse($response);
     }
 
@@ -41,8 +41,8 @@ class ActionValuesController extends Controller
     public function store(ActionValueRequest $request)
     {
         $data = $request->validated();
-        $action_value = ActionValue::create($data);
-        $response['action_value'] = new ActionValueOneResource($action_value);
+        $product = Product::create($data);
+        $response['product'] = new ProductoneResource( $product);
         return self::okResponse($response);
     }
 
@@ -53,10 +53,10 @@ class ActionValuesController extends Controller
      */
     public function update(ActionValueRequest $request, $id)
     {
-        $action_value = ActionValue::find($id);
+        $product = Product::find($id);
         $data = $request->validated();
-        $action_value->update($data);
-        $response['action_value'] = new ActionValueOneResource($action_value);
+        $product->update($data);
+        $response['product'] = new ProductoneResource( $product);
         return self::okResponse($response);
     }
 
@@ -66,12 +66,8 @@ class ActionValuesController extends Controller
      */
     public function destroy($id)
     {
-        $action_value = ActionValue::find($id);
-        $action_value->delete();
+        $product = Product::find($id);
+        $product->delete();
         return $this->index();
     }
 }
-
-
-
-

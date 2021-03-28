@@ -7,16 +7,20 @@ use App\Http\Resources\SettingOneResource;
 use App\Http\Resources\SettingsResource;
 use App\Models\Setting;
 use App\Http\Requests\SettingRequest;
+use App\Traits\ResponseTrait;
 
 class SettingController extends Controller
 {
+    use ResponseTrait;
+
     /**
      * @return \Illuminate\Http\JsonResponse
      */
     public function index()
     {
         $settings = Setting::get();
-        return response()->json(['settings' => new SettingsResource($settings)]);
+        $response['settings'] = new SettingsResource($settings);
+        return self::okResponse($response);
     }
 
     /**
@@ -26,7 +30,11 @@ class SettingController extends Controller
     public function show($id)
     {
         $setting = Setting::find($id);
-        return response()->json(['setting' => new SettingOneResource($setting)]);
+        if($setting) {
+            $response['setting'] = new SettingOneResource($setting);
+            return self::okResponse($response);
+        }
+        return self::notFoundResponse();
     }
 
     /**
@@ -37,7 +45,8 @@ class SettingController extends Controller
     {
         $data = $request->validated();
         $setting = Setting::create($data);
-        return response()->json(['setting' => new SettingOneResource($setting)]);
+        $response['setting'] = new SettingOneResource($setting);
+        return self::okResponse($response);
     }
 
     /**
@@ -48,9 +57,13 @@ class SettingController extends Controller
     public function update(SettingRequest $request, $id)
     {
         $setting = Setting::find($id);
-        $data = $request->validated();
-        $setting->update($data);
-        return response()->json(['setting' => new SettingOneResource($setting)]);
+        if($setting) {
+            $data = $request->validated();
+            $setting->update($data);
+            $response['setting'] = new SettingOneResource($setting);
+            return self::okResponse($response);
+        }
+        return self::notFoundResponse();
     }
 
     /**
@@ -60,8 +73,11 @@ class SettingController extends Controller
     public function destroy($id)
     {
         $setting = Setting::find($id);
-        $setting->delete();
-        return $this->index();
+        if($setting) {
+            $setting->delete();
+            return $this->index();
+        }
+        return self::notFoundResponse();
     }
 }
 

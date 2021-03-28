@@ -7,16 +7,20 @@ use App\Http\Resources\MenuOneResource;
 use App\Http\Resources\MenusResource;
 use App\Models\Menu;
 use App\Http\Requests\MenuRequest;
+use App\Traits\ResponseTrait;
 
 class MenuController extends Controller
 {
+    use ResponseTrait;
+
     /**
      * @return \Illuminate\Http\JsonResponse
      */
     public function index()
     {
         $menus = Menu::get();
-        return response()->json(['menus' => new MenusResource($menus)]);
+        $response['menus'] = new MenusResource($menus);
+        return self::okResponse($response);
     }
 
     /**
@@ -26,7 +30,8 @@ class MenuController extends Controller
     public function show($id)
     {
         $menu = Menu::find($id);
-        return response()->json(['menu' => new MenuOneResource($menu)]);
+        $response['menu'] = new MenuOneResource($menu);
+        return self::okResponse($response);
     }
 
     /**
@@ -37,7 +42,8 @@ class MenuController extends Controller
     {
         $data = $request->validated();
         $menu = Menu::create($data);
-        return response()->json(['menu' => new MenuOneResource($menu)]);
+        $response['menu'] = new MenuOneResource($menu);
+        return self::okResponse($response);
     }
 
     /**
@@ -50,7 +56,8 @@ class MenuController extends Controller
         $menu = Menu::find($id);
         $data = $request->validated();
         $menu->update($data);
-        return response()->json(['menu' => new MenuOneResource($menu)]);
+        $response['menu'] = new MenuOneResource($menu);
+        return self::okResponse($response);
     }
 
     /**

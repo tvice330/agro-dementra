@@ -7,16 +7,20 @@ use App\Http\Resources\CategoryOneResource;
 use App\Http\Resources\CategoriesResource;
 use App\Models\Category;
 use App\Http\Requests\CategoryRequest;
+use App\Traits\ResponseTrait;
 
 class CategoryController extends Controller
 {
+    use ResponseTrait;
+
     /**
      * @return \Illuminate\Http\JsonResponse
      */
     public function index()
     {
         $categories = Category::get();
-        return response()->json(['categories' => new CategoriesResource($categories)]);
+        $response['categories'] = new CategoriesResource($categories);
+        return self::okResponse($response);
     }
 
     /**
@@ -26,7 +30,8 @@ class CategoryController extends Controller
     public function show($id)
     {
         $category = Category::find($id);
-        return response()->json(['category' => new CategoryOneResource($category)]);
+        $response['category'] = new CategoryOneResource($category);
+        return self::okResponse($response);
     }
 
     /**
@@ -37,7 +42,8 @@ class CategoryController extends Controller
     {
         $data = $request->validated();
         $category = Category::create($data);
-        return response()->json(['category' => new CategoryOneResource($category)]);
+        $response['category'] = new CategoryOneResource($category);
+        return self::okResponse($response);
     }
 
     /**
@@ -50,7 +56,8 @@ class CategoryController extends Controller
         $category = Category::find($id);
         $data = $request->validated();
         $category->update($data);
-        return response()->json(['category' => new CategoryOneResource($category)]);
+        $response['category'] = new CategoryOneResource($category);
+        return self::okResponse($response);
     }
 
     /**

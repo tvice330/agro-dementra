@@ -27,6 +27,7 @@ class CategoryRequest extends FormRequest
             'name' => 'required|string',
             'active' => 'required|boolean',
             'position' => 'required|integer',
+            'alias' => 'required|string',
         ];
     }
 }

@@ -19,7 +19,8 @@ class CategoriesResource extends JsonResource
             $grades[] = [
                 "name" => $grade->name,
                 "position" => $grade->position,
-                "active" => $grade->active
+                "active" => $grade->active,
+                "alias" => $grade->alias
             ];
         }
         return $grades;

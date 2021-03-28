@@ -7,16 +7,20 @@ use App\Http\Resources\CompanyDescriptionOneResource;
 use App\Http\Resources\CompanyDescriptionsResource;
 use App\Models\CompanyDescription;
 use App\Http\Requests\CompanyDescriptionRequest;
+use App\Traits\ResponseTrait;
 
 class CompanyDescriptionController extends Controller
 {
+    use ResponseTrait;
+
     /**
      * @return \Illuminate\Http\JsonResponse
      */
     public function index()
     {
         $company_descriptions = CompanyDescription::get();
-        return response()->json(['company_descriptions' => new CompanyDescriptionsResource($company_descriptions)]);
+        $response['company_descriptions'] = new CompanyDescriptionsResource($company_descriptions);
+        return self::okResponse($response);
     }
 
     /**
@@ -26,7 +30,8 @@ class CompanyDescriptionController extends Controller
     public function show($id)
     {
         $company_description = CompanyDescription::find($id);
-        return response()->json(['company_description' => new CompanyDescriptionOneResource($company_description)]);
+        $response['company_description'] = new CompanyDescriptionOneResource($company_description);
+        return self::okResponse($response);
     }
 
     /**
@@ -37,7 +42,8 @@ class CompanyDescriptionController extends Controller
     {
         $data = $request->validated();
         $company_description = CompanyDescription::create($data);
-        return response()->json(['company_description' => new CompanyDescriptionOneResource($company_description)]);
+        $response['company_description'] = new CompanyDescriptionOneResource($company_description);
+        return self::okResponse($response);
     }
 
     /**
@@ -50,7 +56,9 @@ class CompanyDescriptionController extends Controller
         $company_description = CompanyDescription::find($id);
         $data = $request->validated();
         $company_description->update($data);
-        return response()->json(['company_description' => new CompanyDescriptionOneResource($company_description)]);
+        $response['company_description'] = new CompanyDescriptionOneResource($company_description);
+        return self::okResponse($response);
+
     }
 
     /**

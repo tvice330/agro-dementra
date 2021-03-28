@@ -17,7 +17,8 @@ class CategoryOneResource extends JsonResource
         return [
             "name" => $this->name,
             "position" => $this->position,
-            "active" => $this->active
+            "active" => $this->active,
+            "alias" => $this->alias
         ];
     }
 }

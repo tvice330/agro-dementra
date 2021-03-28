@@ -6,17 +6,21 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\ActionRequest;
 use App\Http\Resources\ActionOneResource;
 use App\Http\Resources\ActionsResource;
+use App\Traits\ResponseTrait;
 use App\Models\Action;
 
 class ActionController extends Controller
 {
+    use ResponseTrait;
+
     /**
      * @return \Illuminate\Http\JsonResponse
      */
     public function index()
     {
         $actions = Action::get();
-        return response()->json(['actions' => new ActionsResource($actions)]);
+        $response['actions'] = new ActionsResource($actions);
+        return self::okResponse($response);
     }
 
     /**
@@ -26,7 +30,8 @@ class ActionController extends Controller
     public function show($id)
     {
         $action = Action::find($id);
-        return response()->json(['action' => new ActionOneResource($action)]);
+        $response['action'] = new ActionOneResource($action);
+        return self::okResponse($response);
     }
 
     /**
@@ -37,7 +42,8 @@ class ActionController extends Controller
     {
         $data = $request->validated();
         $action = Action::create($data);
-        return response()->json(['action' => new ActionOneResource($action)]);
+        $response['action'] = new ActionOneResource($action);
+        return self::okResponse($response);
     }
 
     /**
@@ -50,7 +56,8 @@ class ActionController extends Controller
         $action = Action::find($id);
         $data = $request->validated();
         $action->update($data);
-        return response()->json(['action' => new ActionOneResource($action)]);
+        $response['action'] = new ActionOneResource($action);
+        return self::okResponse($response);
     }
 
     /**

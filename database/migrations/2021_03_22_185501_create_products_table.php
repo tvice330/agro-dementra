@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateActionValuesTable extends Migration
+class CreateProductsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,16 @@ class CreateActionValuesTable extends Migration
      */
     public function up()
     {
-        Schema::create('action_values', function (Blueprint $table) {
+        Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->integer('price');
+            $table->text('description');
             $table->boolean('active')->default(true);
             $table->integer('position')->default(0);
-            $table->integer('action_id');
+            $table->integer('category_id');
+            $table->string('conditions');
+            $table->string('image');
             $table->timestamps();
         });
     }
@@ -30,6 +34,6 @@ class CreateActionValuesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('action_values');
+        Schema::dropIfExists('products');
     }
 }

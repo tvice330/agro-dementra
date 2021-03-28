@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class ActionValue extends Model
 {
     protected $fillable = [
-        'name', 'active', 'action_id',
+        'name', 'active', 'action_id', 'position',
     ];
 
     public function action()

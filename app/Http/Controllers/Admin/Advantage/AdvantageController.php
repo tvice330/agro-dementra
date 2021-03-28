@@ -7,17 +7,21 @@ use App\Http\Resources\AdvantagesResource;
 use App\Http\Resources\AdvantegeOneResource;
 use App\Models\Advantage;
 use App\Http\Requests\AdvantageRequest;
+use App\Traits\ResponseTrait;
 
 
 class AdvantageController extends Controller
 {
+    use ResponseTrait;
+
     /**
      * @return \Illuminate\Http\JsonResponse
      */
     public function index()
     {
         $advantages = Advantage::get();
-        return response()->json(['advantages' => new AdvantagesResource($advantages)]);
+        $response['advantages'] = new AdvantagesResource($advantages);
+        return self::okResponse($response);
     }
 
     /**
@@ -27,7 +31,8 @@ class AdvantageController extends Controller
     public function show($id)
     {
         $advantage = Advantage::find($id);
-        return response()->json(['advantage' => new AdvantegeOneResource($advantage)]);
+        $response['advantage'] = new AdvantegeOneResource($advantage);
+        return self::okResponse($response);
     }
 
     /**
@@ -38,7 +43,8 @@ class AdvantageController extends Controller
     {
         $data = $request->validated();
         $advantage = Advantage::create($data);
-        return response()->json(['advantage' => new AdvantegeOneResource($advantage)]);
+        $response['advantage'] = new AdvantegeOneResource($advantage);
+        return self::okResponse($response);
     }
 
     /**
@@ -51,7 +57,8 @@ class AdvantageController extends Controller
         $advantage = Advantage::find($id);
         $data = $request->validated();
         $advantage->update($data);
-        return response()->json(['advantage' => new AdvantegeOneResource($advantage)]);
+        $response['advantage'] = new AdvantegeOneResource($advantage);
+        return self::okResponse($response);
     }
 
     /**

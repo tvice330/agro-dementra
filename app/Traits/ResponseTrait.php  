@@ -1,13 +1,11 @@
 <?php
 
-namespace App\Http\Traits;
+namespace App\Traits;
 
 trait ResponseTrait
 {
-
     /**
      * @param array $data
-     * @param array|string[] $headers
      * @param int $code
      * @return \Illuminate\Http\JsonResponse
      */
@@ -29,17 +27,6 @@ trait ResponseTrait
         return response()->json([
             'status' => 'bad request',
             'error' => $error
-        ], $code);
-    }
-
-    /**
-     * @param int $code
-     * @return \Illuminate\Http\JsonResponse
-     */
-    static public function internalResponse($code = 500)
-    {
-        return response()->json([
-            'status' => 'internal'
         ], $code);
     }
 
