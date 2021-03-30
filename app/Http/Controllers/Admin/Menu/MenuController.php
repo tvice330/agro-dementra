@@ -5,9 +5,9 @@ namespace App\Http\Controllers\Admin\Menu;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\MenuOneResource;
 use App\Http\Resources\MenusResource;
+use App\Http\Traits\ResponseTrait;
 use App\Models\Menu;
 use App\Http\Requests\MenuRequest;
-use App\Traits\ResponseTrait;
 
 class MenuController extends Controller
 {
@@ -30,8 +30,11 @@ class MenuController extends Controller
     public function show($id)
     {
         $menu = Menu::find($id);
-        $response['menu'] = new MenuOneResource($menu);
-        return self::okResponse($response);
+        if ($menu) {
+            $response['menu'] = new MenuOneResource($menu);
+            return self::okResponse($response);
+        }
+        return self::notFoundResponse();
     }
 
     /**
@@ -54,10 +57,13 @@ class MenuController extends Controller
     public function update(MenuRequest $request, $id)
     {
         $menu = Menu::find($id);
-        $data = $request->validated();
-        $menu->update($data);
-        $response['menu'] = new MenuOneResource($menu);
-        return self::okResponse($response);
+        if ($menu) {
+            $data = $request->validated();
+            $menu->update($data);
+            $response['menu'] = new MenuOneResource($menu);
+            return self::okResponse($response);
+        }
+        return self::notFoundResponse();
     }
 
     /**
@@ -67,8 +73,11 @@ class MenuController extends Controller
     public function destroy($id)
     {
         $menu = Menu::find($id);
-        $menu->delete();
-        return $this->index();
+        if ($menu) {
+            $menu->delete();
+            return $this->index();
+        }
+        return self::notFoundResponse();
     }
 }
 

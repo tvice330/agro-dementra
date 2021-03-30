@@ -7,7 +7,7 @@ use App\Http\Resources\PartnershipOneResource;
 use App\Http\Resources\PartnershipsResource;
 use App\Models\Partnership;
 use App\Http\Requests\PartnershipRequest;
-use App\Traits\ResponseTrait;
+use App\Http\Traits\ResponseTrait;
 
 class PartnershipController extends Controller
 {
@@ -30,8 +30,11 @@ class PartnershipController extends Controller
     public function show($id)
     {
         $partnership = Partnership::find($id);
-        $response['partnership'] = new PartnershipOneResource($partnership);
-        return self::okResponse($response);
+        if ($partnership) {
+            $response['partnership'] = new PartnershipOneResource($partnership);
+            return self::okResponse($response);
+        }
+        return self::notFoundResponse();
     }
 
     /**
@@ -54,10 +57,13 @@ class PartnershipController extends Controller
     public function update(PartnershipRequest $request, $id)
     {
         $partnership = Partnership::find($id);
-        $data = $request->validated();
-        $partnership->update($data);
-        $response['partnership'] = new PartnershipOneResource($partnership);
-        return self::okResponse($response);
+        if ($partnership) {
+            $data = $request->validated();
+            $partnership->update($data);
+            $response['partnership'] = new PartnershipOneResource($partnership);
+            return self::okResponse($response);
+        }
+        return self::notFoundResponse();
     }
 
     /**
@@ -67,8 +73,11 @@ class PartnershipController extends Controller
     public function destroy($id)
     {
         $partnership = Partnership::find($id);
-        $partnership->delete();
-        return $this->index();
+        if ($partnership) {
+            $partnership->delete();
+            return $this->index();
+        }
+        return self::notFoundResponse();
     }
 }
 

@@ -7,7 +7,7 @@ use App\Http\Resources\SettingOneResource;
 use App\Http\Resources\SettingsResource;
 use App\Models\Setting;
 use App\Http\Requests\SettingRequest;
-use App\Traits\ResponseTrait;
+use App\Http\Traits\ResponseTrait;
 
 class SettingController extends Controller
 {

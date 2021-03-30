@@ -10,27 +10,27 @@ class AdvantageSeeder extends Seeder
         $data = [
             [
                 'name' => 'ТОЛЬКО ВЫСОКОКАЧЕСТВЕННЫЕ СОРТА',
-                'position' => '1'
+                'position' => 1,
             ],
             [
                 'name' => 'ШИРОКИЙ АССОРТИМЕНТ',
-                'position' => '2'
+                'position' => 2,
             ],
             [
                 'name' => 'ВЫСОКАЯ УРОЖАЙНОСТЬ',
-                'position' => '3'
+                'position' => 3,
             ],
             [
                 'name' => 'ОПЛАТА ПОСЛЕ ДОСТАВКИ ТОВАРА',
-                'position' => '4'
+                'position' => 4,
             ],
             [
                 'name' => 'КОНТРОЛИРУЕМ СРОКИ ГОДНОСТИ И СООТВЕТСТВИЕ СОРТОВ',
-                'position' => '5'
+                'position' => 5,
             ],
             [
                 'name' => 'ДОСТАВКА НОВОЙ ПОЧТОЙ ИЛИ СВОИМ ТРАНСПОРТОМ',
-                'position' => '6'
+                'position' => 6,
             ],
         ];
 

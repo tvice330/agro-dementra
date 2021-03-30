@@ -17,7 +17,6 @@ class ProductsResource extends JsonResource
         $grades = [];
         foreach ($this->resource as $grade) {
             $grades[] = [
-
                 "name" => $grade->name,
                 "price" => $grade->price,
                 "description" => $grade->description,

@@ -29,7 +29,7 @@ class CompanyDescriptionRequest extends FormRequest
             'description_years' => 'required|string',
             'count_regions' => 'required|integer',
             'description_regions' => 'required|string',
-            'description' => 'required|text',
+            'description' => 'required',
             'image' => 'required',
         ];
     }

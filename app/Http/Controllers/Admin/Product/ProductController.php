@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\ProductoneResource;
 use App\Http\Resources\ProductsResource;
 use App\Models\Product;
-use App\Traits\ResponseTrait;
+use App\Http\Traits\ResponseTrait;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -30,8 +30,11 @@ class ProductController extends Controller
     public function show($id)
     {
         $product = Product::find($id);
-        $response['product'] = new ProductoneResource( $product);
-        return self::okResponse($response);
+        if ($product) {
+            $response['product'] = new ProductoneResource($product);
+            return self::okResponse($response);
+        }
+        return self::notFoundResponse();
     }
 
     /**
@@ -42,7 +45,7 @@ class ProductController extends Controller
     {
         $data = $request->validated();
         $product = Product::create($data);
-        $response['product'] = new ProductoneResource( $product);
+        $response['product'] = new ProductoneResource($product);
         return self::okResponse($response);
     }
 
@@ -54,10 +57,13 @@ class ProductController extends Controller
     public function update(ActionValueRequest $request, $id)
     {
         $product = Product::find($id);
-        $data = $request->validated();
-        $product->update($data);
-        $response['product'] = new ProductoneResource( $product);
-        return self::okResponse($response);
+        if ($product) {
+            $data = $request->validated();
+            $product->update($data);
+            $response['product'] = new ProductoneResource($product);
+            return self::okResponse($response);
+        }
+        return self::notFoundResponse();
     }
 
     /**
@@ -67,7 +73,10 @@ class ProductController extends Controller
     public function destroy($id)
     {
         $product = Product::find($id);
-        $product->delete();
-        return $this->index();
+        if ($product) {
+            $product->delete();
+            return $this->index();
+        }
+        return self::notFoundResponse();
     }
 }

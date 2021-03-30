@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 
-
 Route::get('/menus', 'Clients\Menu\MenuController@index');
 Route::get('/settings', 'Clients\Setting\SettingController@index');
 Route::get('/advantages', 'Clients\Advantage\AdvantageController@index');
@@ -12,5 +11,4 @@ Route::post('/user_calls', 'Clients\UserCall\UserCallController@store');
 Route::post('/ask_questions', 'Clients\AskQuestion\AskQuestionController@store');
 Route::get('/actions', 'Clients\Action\ActionController@index');
 Route::get('/company_descriptions', 'Clients\CompanyDescription\CompanyDescriptionController@index');
-Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/products', 'Clients\Products\ProductController@index');

@@ -7,7 +7,7 @@ use App\Http\Resources\CompanyDescriptionOneResource;
 use App\Http\Resources\CompanyDescriptionsResource;
 use App\Models\CompanyDescription;
 use App\Http\Requests\CompanyDescriptionRequest;
-use App\Traits\ResponseTrait;
+use App\Http\Traits\ResponseTrait;
 
 class CompanyDescriptionController extends Controller
 {
@@ -30,8 +30,11 @@ class CompanyDescriptionController extends Controller
     public function show($id)
     {
         $company_description = CompanyDescription::find($id);
-        $response['company_description'] = new CompanyDescriptionOneResource($company_description);
-        return self::okResponse($response);
+        if ($company_description) {
+            $response['company_description'] = new CompanyDescriptionOneResource($company_description);
+            return self::okResponse($response);
+        }
+        return self::notFoundResponse();
     }
 
     /**
@@ -54,10 +57,13 @@ class CompanyDescriptionController extends Controller
     public function update(CompanyDescriptionRequest $request, $id)
     {
         $company_description = CompanyDescription::find($id);
-        $data = $request->validated();
-        $company_description->update($data);
-        $response['company_description'] = new CompanyDescriptionOneResource($company_description);
-        return self::okResponse($response);
+        if ($company_description) {
+            $data = $request->validated();
+            $company_description->update($data);
+            $response['company_description'] = new CompanyDescriptionOneResource($company_description);
+            return self::okResponse($response);
+        }
+        return self::notFoundResponse();
 
     }
 
@@ -68,7 +74,10 @@ class CompanyDescriptionController extends Controller
     public function destroy($id)
     {
         $company_description = CompanyDescription::find($id);
-        $company_description->delete();
-        return $this->index();
+        if ($company_description) {
+            $company_description->delete();
+            return $this->index();
+        }
+        return self::notFoundResponse();
     }
 }

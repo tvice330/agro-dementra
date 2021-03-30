@@ -7,7 +7,7 @@ use App\Http\Resources\CategoryOneResource;
 use App\Http\Resources\CategoriesResource;
 use App\Models\Category;
 use App\Http\Requests\CategoryRequest;
-use App\Traits\ResponseTrait;
+use App\Http\Traits\ResponseTrait;
 
 class CategoryController extends Controller
 {
@@ -30,8 +30,11 @@ class CategoryController extends Controller
     public function show($id)
     {
         $category = Category::find($id);
-        $response['category'] = new CategoryOneResource($category);
-        return self::okResponse($response);
+        if ($category) {
+            $response['category'] = new CategoryOneResource($category);
+            return self::okResponse($response);
+        }
+        return self::notFoundResponse();
     }
 
     /**
@@ -54,10 +57,13 @@ class CategoryController extends Controller
     public function update(CategoryRequest $request, $id)
     {
         $category = Category::find($id);
-        $data = $request->validated();
-        $category->update($data);
-        $response['category'] = new CategoryOneResource($category);
-        return self::okResponse($response);
+        if ($category) {
+            $data = $request->validated();
+            $category->update($data);
+            $response['category'] = new CategoryOneResource($category);
+            return self::okResponse($response);
+        }
+        return self::notFoundResponse();
     }
 
     /**
@@ -67,7 +73,10 @@ class CategoryController extends Controller
     public function destroy($id)
     {
         $category = Category::find($id);
-        $category->delete();
-        return $this->index();
+        if ($category) {
+            $category->delete();
+            return $this->index();
+        }
+        return self::notFoundResponse();
     }
 }

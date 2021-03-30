@@ -7,7 +7,7 @@ use App\Http\Requests\ActionValueRequest;
 use App\Http\Resources\ActionValueOneResource;
 use App\Http\Resources\ActionValuesResource;
 use App\Models\ActionValue;
-use App\Traits\ResponseTrait;
+use App\Http\Traits\ResponseTrait;
 
 class ActionValuesController extends Controller
 {
@@ -30,8 +30,11 @@ class ActionValuesController extends Controller
     public function show($id)
     {
         $action_value = ActionValue::find($id);
-        $response['action_value'] = new ActionValueOneResource($action_value);
-        return self::okResponse($response);
+        if ($action_value) {
+            $response['action_value'] = new ActionValueOneResource($action_value);
+            return self::okResponse($response);
+        }
+        return self::notFoundResponse();
     }
 
     /**
@@ -54,10 +57,13 @@ class ActionValuesController extends Controller
     public function update(ActionValueRequest $request, $id)
     {
         $action_value = ActionValue::find($id);
-        $data = $request->validated();
-        $action_value->update($data);
-        $response['action_value'] = new ActionValueOneResource($action_value);
-        return self::okResponse($response);
+        if ($action_value) {
+            $data = $request->validated();
+            $action_value->update($data);
+            $response['action_value'] = new ActionValueOneResource($action_value);
+            return self::okResponse($response);
+        }
+        return self::notFoundResponse();
     }
 
     /**
@@ -67,8 +73,11 @@ class ActionValuesController extends Controller
     public function destroy($id)
     {
         $action_value = ActionValue::find($id);
-        $action_value->delete();
-        return $this->index();
+        if ($action_value) {
+            $action_value->delete();
+            return $this->index();
+        }
+        return self::notFoundResponse();
     }
 }
 

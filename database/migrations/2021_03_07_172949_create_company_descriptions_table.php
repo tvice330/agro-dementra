@@ -21,7 +21,7 @@ class CreateCompanyDescriptionsTable extends Migration
             $table->integer('count_regions');
             $table->string('description_regions');
             $table->text('description');
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }

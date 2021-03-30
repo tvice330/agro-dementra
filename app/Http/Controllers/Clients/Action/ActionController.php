@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Clients\Action;
 
 use App\Http\Controllers\Controller;
 
-use App\Http\Resources\Client\ActionResource;
+use App\Http\Resources\Client\ActionsResource;
 use App\Models\Action;
 
 class ActionController extends Controller
@@ -15,7 +15,7 @@ class ActionController extends Controller
     public function index()
     {
         $values = Action::with('action_values')->get();
-        return response()->json(['values' => new ActionResource($values)]);
+        return response()->json(['values' => new ActionsResource($values)]);
     }
 }
 

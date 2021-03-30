@@ -22,7 +22,7 @@ class CreateProductsTable extends Migration
             $table->integer('position')->default(0);
             $table->integer('category_id');
             $table->string('conditions');
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }

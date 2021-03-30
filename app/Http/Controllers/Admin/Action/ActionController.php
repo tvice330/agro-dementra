@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\ActionRequest;
 use App\Http\Resources\ActionOneResource;
 use App\Http\Resources\ActionsResource;
-use App\Traits\ResponseTrait;
+use App\Http\Traits\ResponseTrait;
 use App\Models\Action;
 
 class ActionController extends Controller
@@ -30,8 +30,11 @@ class ActionController extends Controller
     public function show($id)
     {
         $action = Action::find($id);
-        $response['action'] = new ActionOneResource($action);
-        return self::okResponse($response);
+        if ($action) {
+            $response['action'] = new ActionOneResource($action);
+            return self::okResponse($response);
+        }
+        return self::notFoundResponse();
     }
 
     /**
@@ -54,10 +57,13 @@ class ActionController extends Controller
     public function update(ActionRequest $request, $id)
     {
         $action = Action::find($id);
-        $data = $request->validated();
-        $action->update($data);
-        $response['action'] = new ActionOneResource($action);
-        return self::okResponse($response);
+        if ($action) {
+            $data = $request->validated();
+            $action->update($data);
+            $response['action'] = new ActionOneResource($action);
+            return self::okResponse($response);
+        }
+        return self::notFoundResponse();
     }
 
     /**
@@ -67,8 +73,11 @@ class ActionController extends Controller
     public function destroy($id)
     {
         $action = Action::find($id);
-        $action->delete();
-        return $this->index();
+        if ($action) {
+            $action->delete();
+            return $this->index();
+        }
+        return self::notFoundResponse();
     }
 }
 

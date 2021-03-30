@@ -10,22 +10,22 @@ class MenuTableSeeder extends Seeder
         $data = [
             [
                 'name' => 'ПРЕИМУЩЕСТВА',
-                'position' => '1',
+                'position' => 1,
                 'alias' => 'advantages'
             ],
             [
                 'name' => 'НАША ПРОДУКЦИЯ',
-                'position' => '2',
+                'position' => 2,
                 'alias' => 'products'
             ],
             [
                 'name' => 'О КОМПАНИИ',
-                'position' => '3',
+                'position' => 3,
                 'alias' => 'about_us'
             ],
             [
                 'name' => 'КОНТАКТЫ',
-                'position' => '4',
+                'position' => 4,
                 'alias' => 'contacts'
             ]
         ];

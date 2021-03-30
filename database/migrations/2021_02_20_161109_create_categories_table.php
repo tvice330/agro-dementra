@@ -18,6 +18,7 @@ class CreateCategoriesTable extends Migration
             $table->string('name');
             $table->boolean('active')->default(true);
             $table->integer('position')->default(0);
+            $table->string('alias');
             $table->timestamps();
         });
     }

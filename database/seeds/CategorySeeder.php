@@ -9,63 +9,63 @@ class CategorySeeder extends Seeder
         $data = [
             [
                 'name' => 'ОЗИМАЯ ПШЕНИЦА',
-                'alias' => 'WINTER WHEAT',
-                'position' => '1'
+                'alias' => 'winter_wheat',
+                'position' => 1,
             ],
             [
                 'name' => 'ОЗИМЫЙ ЯЧМЕНЬ',
-                'alias' => 'WINTER BARLEY',
-                'position' => '2'
+                'alias' => 'winter_barley',
+                'position' => 2,
             ],
             [
                 'name' => 'РАПС ОЗИМЫЙ',
-                'alias' => 'RAPESEED WINTER',
-                'position' => '3'
+                'alias' => 'rapeseed_winter',
+                'position' => 3,
             ],
             [
                 'name' => 'ГОРОХ ЗИМУЮЩИЙ',
-                'alias' => 'WINTER PEAS',
-                'position' => '4'
+                'alias' => 'winter_peas',
+                'position' => 4,
             ],
             [
                 'name' => 'ОЗИМАЯ ГОРЧИЦА',
-                'alias' => 'WINTER MUSTARD',
-                'position' => '5'
+                'alias' => 'winter_mustard',
+                'position' => 5,
             ],
             [
                 'name' => 'ЯРОВЫЙ ЯЧМЕНЬ',
-                'alias' => 'SPRING BARLEY',
-                'position' => '6'
+                'alias' => 'spring_barley',
+                'position' => 6,
             ],
             [
                 'name' => 'ЯРАЯ КУКУРУЗА',
-                'alias' => 'SPRING CORN',
-                'position' => '7'
+                'alias' => 'spring_corn',
+                'position' => 7,
             ],
             [
                 'name' => 'ЯРЫЙ РАПС',
-                'alias' => 'SPRING RAPESEED',
-                'position' => '8'
+                'alias' => 'spring_rapeseed',
+                'position' => 8,
             ],
             [
                 'name' => 'ЯРАЯ ГОРЧИЦА',
-                'alias' => 'SPRING MUSTARD',
-                'position' => '9'
+                'alias' => 'spring_mustard',
+                'position' => 9,
             ],
             [
                 'name' => 'ЯРЫЙ НУТ',
-                'alias' => 'SPRING NUT',
-                'position' => '10'
+                'alias' => 'spring_nut',
+                'position' => 10,
             ],
             [
                 'name' => 'ЯРЫЙ ПОДСОЛНУХ',
-                'alias' => 'SPRING SUNFLOWER',
-                'position' => '11'
+                'alias' => 'spring_sunflower',
+                'position' => 11,
             ],
             [
                 'name' => 'ЯРАЯ ГРЕЧИХА',
-                'alias' => 'SPRING BUCKWHEAT',
-                'position' => '12'
+                'alias' => 'spring_buckwheat',
+                'position' => 12,
             ],
         ];
 
