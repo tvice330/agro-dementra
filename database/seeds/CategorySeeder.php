@@ -65,7 +65,7 @@ class CategorySeeder extends Seeder
             [
                 'name' => 'ЯРАЯ ГРЕЧИХА',
                 'alias' => 'spring_buckwheat',
-                'position' => 12,
+                'position' => 12
             ],
         ];
 

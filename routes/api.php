@@ -19,10 +19,10 @@ Route::group([
 });
 
 Route::group([
-    'namespace' => 'Admin',
-    'prefix' => 'admin',
+    'namespace' => 'Auth',
+    'prefix' => 'auth',
 ], function () {
-    Route::post('register', 'Auth\ApiAuthController@register');
-    Route::post('login', 'Auth\ApiAuthController@login');
-    Route::post('logout', 'Auth\ApiAuthController@logout');
+    Route::post('register', 'ApiAuthController@register');
+    Route::post('login', 'ApiAuthController@login');
+    Route::post('logout', 'ApiAuthController@logout');
 });

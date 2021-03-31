@@ -46,7 +46,7 @@ class PartnershipSeeder extends Seeder
             [
                 'name' => 'Возможность',
                 'second_name' => 'получить ответы на интересующие вас вопросы',
-                'position' => 8,
+                'position' => 8
             ]
         ];
 

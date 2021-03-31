@@ -30,7 +30,7 @@ class AdvantageSeeder extends Seeder
             ],
             [
                 'name' => 'ДОСТАВКА НОВОЙ ПОЧТОЙ ИЛИ СВОИМ ТРАНСПОРТОМ',
-                'position' => 6,
+                'position' => 6
             ],
         ];
 
