@@ -11,37 +11,37 @@ class PartnershipSeeder extends Seeder
             [
                 'name' => 'Звонок',
                 'second_name' => 'в нашу компанию',
-                'position' => 1,
+                'position' => 1
             ],
             [
                 'name' => 'Консультация',
                 'second_name' => 'определение подходящего сорта и объема заказа',
-                'position' => 2,
+                'position' => 2
             ],
             [
                 'name' => 'Составление',
                 'second_name' => 'счета и договора поставки',
-                'position' => 3,
+                'position' => 3
             ],
             [
                 'name' => 'Обсуждение способа',
                 'second_name' => 'способа и срока отгрузки',
-                'position' => 4,
+                'position' => 4
             ],
             [
                 'name' => 'Подготовка',
                 'second_name' => 'посевного материала и документов на семена',
-                'position' => 5,
+                'position' => 5
             ],
             [
                 'name' => 'Отгрузка',
                 'second_name' => 'продукции в оговоренный день',
-                'position' => 6,
+                'position' => 6
             ],
             [
                 'name' => 'Оплата',
                 'second_name' => 'продукции по счету',
-                'position' => 7,
+                'position' => 7
             ],
             [
                 'name' => 'Возможность',
