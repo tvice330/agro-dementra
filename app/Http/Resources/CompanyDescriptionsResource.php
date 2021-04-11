@@ -17,6 +17,7 @@ class CompanyDescriptionsResource extends JsonResource
         $grades = [];
         foreach ($this->resource as $grade) {
             $grades[] = [
+                "id" => $grade->id,
                 "title" => $grade->title,
                 "count_years" => $grade->count_years,
                 "description_years" => $grade->description_years,

@@ -5,14 +5,15 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\LoginRequest;
 use App\Http\Requests\RegisterRequest;
+use App\Http\Traits\ResponseTrait;
 use App\User;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 
 class ApiAuthController extends Controller
 {
+    use ResponseTrait;
+
     /**
      * @param RegisterRequest $request
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
@@ -52,12 +53,11 @@ class ApiAuthController extends Controller
     }
 
     /**
-     * @param Request $request
-     * @return \Illuminate\Http\JsonResponse
+     * @return mixed
      */
-    public function logout(Request $request)
+    public function logout()
     {
-        $token = $request->user()->token();
+        $token = auth()->user()->token();
         $token->revoke();
         $response['message'] = 'You have been successfully logged out!';
         return $this->okResponse($response);

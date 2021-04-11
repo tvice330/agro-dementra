@@ -15,6 +15,7 @@ class CompanyDescriptionOneResource extends JsonResource
     public function toArray($request)
     {
         return [
+            "id" => $this->id,
             "title" => $this->title,
             "count_years" => $this->count_years,
             "description_years" => $this->description_years,

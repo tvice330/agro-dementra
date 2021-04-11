@@ -17,6 +17,7 @@ class PartnershipsResource extends JsonResource
         $grades = [];
         foreach ($this->resource as $grade) {
             $grades[] = [
+                "id" => $grade->id,
                 "name" => $grade->name,
                 "second_name" => $grade->second_name,
                 "position" => $grade->position,

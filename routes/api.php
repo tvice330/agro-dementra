@@ -18,11 +18,12 @@ Route::group([
     Route::apiResource('products', 'Product\ProductController')->except('create', 'edit');
 });
 
+Route::post('logout', 'Auth\ApiAuthController@logout')->middleware('auth:api');
+
 Route::group([
     'namespace' => 'Auth',
     'prefix' => 'auth',
 ], function () {
     Route::post('register', 'ApiAuthController@register');
     Route::post('login', 'ApiAuthController@login');
-    Route::post('logout', 'ApiAuthController@logout');
 });

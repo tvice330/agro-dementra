@@ -17,6 +17,7 @@ class ActionsResource extends JsonResource
         $grades = [];
         foreach ($this->resource as $grade) {
             $grades[] = [
+                "id" => $grade->id,
                 "title" => $grade->title,
                 'active' => $grade->active
             ];

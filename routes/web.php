@@ -11,4 +11,4 @@ Route::post('/user_calls', 'Clients\UserCall\UserCallController@store');
 Route::post('/ask_questions', 'Clients\AskQuestion\AskQuestionController@store');
 Route::get('/actions', 'Clients\Action\ActionController@index');
 Route::get('/company_descriptions', 'Clients\CompanyDescription\CompanyDescriptionController@index');
-Route::get('/products', 'Clients\Products\ProductController@index');
+Route::get('/products', 'Clients\Product\ProductController@index');

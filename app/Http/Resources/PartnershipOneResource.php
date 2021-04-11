@@ -15,6 +15,7 @@ class PartnershipOneResource extends JsonResource
     public function toArray($request)
     {
         return [
+            "id" => $this->id,
             "name" => $this->name,
             "second_name" => $this->second_name,
             "position" => $this->position,

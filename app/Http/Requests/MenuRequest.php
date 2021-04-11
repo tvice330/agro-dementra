@@ -25,8 +25,8 @@ class MenuRequest extends FormRequest
     {
         return [
             'name' => 'required|string',
-            'active' => 'required|boolean',
-            'position' => 'required|integer',
+            'active' => 'boolean',
+            'position' => 'integer',
             'alias' => 'required|string',
         ];
     }

@@ -17,6 +17,7 @@ class MenusResource extends JsonResource
         $grades = [];
         foreach ($this->resource as $grade) {
             $grades[] = [
+                "id" => $grade->id,
                 "name" => $grade->name,
                 "position" => $grade->position,
                 "active" => $grade->active,

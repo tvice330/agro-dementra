@@ -17,6 +17,7 @@ class SettingsResource extends JsonResource
         $grades = [];
         foreach ($this->resource as $grade) {
             $grades[] = [
+                "id" => $grade->id,
                 "key" => $grade->key,
                 "value" => $grade->value,
             ];

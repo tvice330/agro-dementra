@@ -15,6 +15,7 @@ class ActionValueOneResource extends JsonResource
     public function toArray($request)
     {
         return [
+            "id" => $this->id,
             "name" => $this->name,
             "position" => $this->position,
             "action_id" => $this->action_id,
