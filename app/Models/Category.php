@@ -10,11 +10,19 @@ class Category extends Model
         'name', 'position', 'active', 'alias',
     ];
 
+    /**
+     * @param $query
+     * @return mixed
+     */
     public function scopeActive($query)
     {
         return $query->where('active', 1);
     }
 
+    /**
+     * @param $query
+     * @return mixed
+     */
     public function scopeByPosition($query)
     {
         return $query->orderBy('position');
